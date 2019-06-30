@@ -108,11 +108,18 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'Menu',
         [
             'text' => 'Blog',
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
+        ],
+        [
+            'text'        => 'Home',
+            'url'         => 'admin/pages',
+            'icon'        => 'file',
+            'label'       => 4,
+            'label_color' => 'success',
         ],
         [
             'text'        => 'News',
