@@ -10,9 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::group(['middleware' => ['auth'], 'namespace' => 'Admin'], function()
+Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
-    Route::get('admin', 'AdminController@index')->name('admin.home');
+    Route::get('/', 'AdminController@index')->name('admin.home');
+    Route::get('/courses', 'CourseController@index')->name('admin.courses.index');
+    Route::get('/courses/create', 'CourseController@create')->name('admin.courses.create');
+    Route::get('/courses/{course}/edit', 'CourseController@edit')->name('admin.courses.edit');
+    Route::patch('courses/{course}', 'CourseController@update')->name('admin.courses.update');
+    Route::get('/courses/{course}', 'CourseController@show')->name('admin.courses.show');
+    Route::delete('/courses/{course}', 'CourseController@destroy')->name('admin.courses.destroy');
+    Route::post('/courses/store', 'CourseController@store')->name('admin.courses.store');
+
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site.home');

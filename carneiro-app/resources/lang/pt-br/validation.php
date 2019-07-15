@@ -176,5 +176,12 @@ return [
         'year'                  => 'ano',
         'email'                 => 'e-mail',
         'remember'              => 'lembrar-se de mim',
+        'course'                =>  [
+            'name'              =>  'nome do curso',
+            'duration'          =>  'duração do curso',
+            'logo'              => 'logo',
+            'schedules'         => 'horarios',
+            'description'           => 'descrição do curso',
+        ],
     ],
 ];
