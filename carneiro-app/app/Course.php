@@ -10,6 +10,6 @@ class Course extends Model
     use Notifiable;
 
     protected $fillable = [
-        'name', 'duration', 'logo', 'schedules', 'description'
+        'name', 'duration', 'logo', 'schedules', 'description', 'user_id'
     ];
 }

@@ -181,7 +181,17 @@ return [
             'duration'          =>  'duração do curso',
             'logo'              => 'logo',
             'schedules'         => 'horarios',
-            'description'           => 'descrição do curso',
+            'description'       => 'descrição do curso',
+        ],
+        'news'                  =>  [
+            'title'             =>  'título',
+            'category'          =>  'categoria',
+            'image'           => 'imagem',
+            'description'       => 'texto da notícia',
+        ],
+        'link'                  =>  [
+            'title'             =>  'título',
+            'url'               =>  'url',
         ],
     ],
 ];

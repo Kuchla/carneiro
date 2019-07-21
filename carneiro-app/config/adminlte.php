@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b> CFCM',
+    'logo' => '<b>Admin</b> CEFCM',
 
     'logo_mini' => '<b>A</b>LT',
 
@@ -136,17 +136,17 @@ return [
         ],
         [
             'text'        => 'Galeria',
-            'url'         => 'admin/pages',
+            'url'         => 'admin/galleries',
             'icon'        => 'photo',
         ],
         [
             'text'        => 'Administração',
-            'url'         => 'admin/administrations',
+            'url'         => 'admin/collaborators',
             'icon'        => 'users',
         ],
         [
             'text'        => 'Institucional',
-            'url'         => 'admin/institutions',
+            'url'         => 'admin/institutionals',
             'icon'        => 'institution',
         ],
         

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Course;
+use Illuminate\Support\Facades\Auth;
 
 class CourseController extends Controller
 {
@@ -23,11 +24,12 @@ class CourseController extends Controller
     {
         $this->validation($request);
 
-        $course->name = $request->name;
-        $course->duration = $request->duration;
-        $course->description = $request->description;
-        $course->logo = $request->logo->store('logos');
-        $course->schedules = $request->schedules->store('schedules');
+        $course->user_id = Auth::id();
+        $course->name = $request->course['name'];
+        $course->duration = $request->course['duration'];
+        $course->description = $request->course['description'];
+        $course->logo = $request->course['logo']->store('logos');
+        $course->schedules = $request->course['schedules']->store('schedules');
         $course->save();
 
         return redirect(route('admin.courses.show', compact('course')));
@@ -47,12 +49,13 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         $this->validation($request);
-        
-        $course->name = $request->name;
-        $course->duration = $request->duration;
-        $course->description = $request->description;
-        $course->logo = $request->logo->store('logos');
-        $course->schedules = $request->schedules->store('schedules');
+
+        $course->user_id = Auth::id();
+        $course->name = $request->course['name'];
+        $course->duration = $request->course['duration'];
+        $course->description = $request->course['description'];
+        $course->logo = $request->course['logo']->store('logos');
+        $course->schedules = $request->course['schedules']->store('schedules');
         $course->update();
         
         return redirect(route('admin.courses.show', compact('course')));
@@ -65,7 +68,6 @@ class CourseController extends Controller
 
     private function validation(Request $request)
     {
-        dd($request);
         $request->validate([
            'course.name'        => 'required|min:4|max:50',
            'course.duration'    => 'required|min:4|max:50',

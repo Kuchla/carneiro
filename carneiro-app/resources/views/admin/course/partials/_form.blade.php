@@ -1,9 +1,9 @@
+@csrf
 <div class="box box-primary">
     <div class="box-header with-border">
         <h3 class="box-title">Formulário</h3>
     </div>
     <div class="box-body">
-
 
         <div class="row">
             <div class="form-group col-md-6 has-feedback {{ $errors->has('course.name') ? 'has-error' : '' }}">
@@ -106,9 +106,11 @@
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="submit" class="btn btn-success">
+                        {{ trans('adminlte::adminlte.btn.save') }}
+                    </button>
                     <a class="btn btn-primary" href="{{ route('admin.courses.index') }}">
-                        Cancelar
+                        {{ trans('adminlte::adminlte.btn.cancel') }}  
                     </a>
                 </div>
             </div>

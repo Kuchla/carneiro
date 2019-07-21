@@ -1,7 +1,8 @@
 <?php
 
 return [
-
+    'admin'                       => 'Gerenciar',
+    'id'                          => 'Id',  
     'full_name'                   => 'Nome completo',
     'email'                       => 'Email',
     'password'                    => 'Senha',
@@ -20,10 +21,46 @@ return [
     'reset_password'              => 'Recuperar senha',
     'send_password_reset_link'    => 'Enviar link de recuperação de senha',     
     'course'                      =>  [
-        'duration'                => 'Duração do curso',
-        'name'                    => 'Nome do curso',  
-        'logo'                    => 'Logo do curso',    
-        'schedules'               => 'Horarios do curso',
-        'description'             => 'Descição do curso',  
-    ]
+        'page'                    => 'Cursos',   
+        'duration'                => 'Duração',
+        'name'                    => 'Nome',  
+        'logo'                    => 'Logo',    
+        'schedules'               => 'Horarios',
+        'description'             => 'Descição',  
+    ],
+    'news'                  =>  [
+        'page'              => 'Notícias',   
+        'title'             =>  'Título',
+        'category'          =>  'Categoria',
+        'image'             => 'Imagem',
+        'description'       => 'Texto',
+    ],
+    'link'                  =>  [
+        'page'              =>  'Links',   
+        'title'             =>  'Título',
+        'url'               =>  'URL',
+    ],
+    'gallery'                  =>  [
+        'page'              =>  'Galeria',   
+        'category'          =>  'Categoria',
+        'description'       =>  'Descrição',
+        'image'             =>  'Imagem',
+    ],
+    'breadcrumbs'         =>  [
+        'create'          => 'Criar',
+        'edit'            => 'Editar',
+        'index'           => 'Índice',
+        'show'            => 'Visualizar',  
+    ],
+    'btn'                 =>  [
+        'new'                     => 'Novo',
+        'edit'                    => 'Editar', 
+        'show'                    => 'Visualizar',
+        'delete'                  => 'Deletar',
+        'cancel'                  => 'Cancelar', 
+        'save'                    => 'Salvar', 
+
+ 
+    ],
+        
 ];
