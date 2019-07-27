@@ -40,7 +40,7 @@
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-sm btn-danger">
-                   <i class="fa fa-trash"> {{ trans('adminlte::adminlte.btn.delete') }}</i></button>
+                  <i class="fa fa-trash"> {{ trans('adminlte::adminlte.btn.delete') }}</i></button>
               </form>
             </div>
           </div>

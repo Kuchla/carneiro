@@ -22,6 +22,7 @@ class CourseController extends Controller
 
     public function store(Request $request, Course $course)
     {
+
         $this->validation($request);
 
         $course->user_id = Auth::id();
@@ -50,6 +51,7 @@ class CourseController extends Controller
     {
         $this->validation($request);
 
+        dd($request);
         $course->user_id = Auth::id();
         $course->name = $request->course['name'];
         $course->duration = $request->course['duration'];

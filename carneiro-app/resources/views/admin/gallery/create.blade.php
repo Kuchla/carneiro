@@ -14,7 +14,6 @@
 @section('content')
 
 <form  method="POST" action="{{ route('admin.galleries.store') }}" role="form" enctype="multipart/form-data">
-    @csrf
 
 @include('admin.gallery.partials._form')
 
