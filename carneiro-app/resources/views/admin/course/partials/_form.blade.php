@@ -131,21 +131,15 @@
 </script>
 
 <script>
-     console.log(document.getElementById("show_img").src);
     function readURL(input) {
         if (input.files && input.files[0]) {
-            var img = document.getElementById("show_img").src;
             var reader = new FileReader();
            
-            
-
             reader.onload = function (e) {
                 $('#show_img')
                     .attr('src', e.target.result);
             };
-
             reader.readAsDataURL(input.files[0]);
         }
     }
-
 </script>

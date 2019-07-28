@@ -18,12 +18,11 @@
             </ul>
           </div>
         </div>
-
         <div class="row portfolio-container">
-
+          @foreach ($galleries as $gallery)
           <div class="col-lg-4 col-md-6 portfolio-item filter-app">
             <div class="portfolio-wrap">
-              <img src="img/galery/app1.jpg" class="img-fluid" alt="">
+              <img src="{{ url('storage/'.$gallery->image) }}" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4><a href="#">App 1</a></h4>
                 <p>App</p>
@@ -35,7 +34,7 @@
               </div>
             </div>
           </div>
-
+          @endforeach
           <div class="col-lg-4 col-md-6 portfolio-item filter-web" data-wow-delay="0.1s">
             <div class="portfolio-wrap">
               <img src="img/galery/web3.jpg" class="img-fluid" alt="">

@@ -33,8 +33,10 @@ class GalleryController extends Controller
         $gallery->image = $request->gallery['image']->store('gallery');
         $gallery->category = $request->gallery['category'];
         $gallery->save();
+        
+        $category = $gallery->category;
 
-        return redirect(route('admin.galleries.show', compact('gallery')));
+        return redirect(route('admin.galleries.show', compact('category')));
     }
 
     public function edit(Gallery $gallery)
