@@ -34,9 +34,9 @@ class GalleryController extends Controller
         $gallery->category = $request->gallery['category'];
         $gallery->save();
         
-        $category = $gallery->category;
+        $gallery= $gallery->category;
 
-        return redirect(route('admin.galleries.show', compact('category')));
+        return redirect(route('admin.galleries.show', compact('gallery')));
     }
 
     public function edit(Gallery $gallery)
@@ -57,9 +57,11 @@ class GalleryController extends Controller
 
         $gallery->user_id = Auth::id();
         $gallery->description = $request->gallery['description'];
-        $gallery->image = $request->gallery['image']->store('gallery');
+        $gallery->gallery_image = isset($request->gallery['image']) ? $request->gallery['image']->store('gallery') : null;
         $gallery->category = $request->gallery['category'];
         $gallery->update();
+
+        $gallery = $gallery->category;
         
         return redirect(route('admin.galleries.show', compact('gallery')));
     }
@@ -75,7 +77,7 @@ class GalleryController extends Controller
         $request->validate([
            'gallery.description'        => 'required|min:4|max:40',
            'gallery.category'    => 'required',
-           'gallery.image'        => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           'gallery.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
        ]);
     }
 }

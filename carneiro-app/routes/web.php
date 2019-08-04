@@ -30,6 +30,14 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site.home');
+Route::get('/paginate', 'Site\SiteController@paginateGallery')->name('site.home.gallery');
+
+Route::get('/courses/{id}', 'Site\SiteController@course')->name('site.courses.show');
+Route::get('/news/{id}', 'Site\SiteController@news')->name('site.news.show');
+Route::get('/news', 'Site\SiteController@newsIndex')->name('site.news');
+
+
+
 
 Auth::routes();
 

@@ -13,8 +13,8 @@ final class Category extends Enum implements LocalizedEnum
     const SECRETARIAT = 'secretariat';
     const ELECTRONICS = 'electronics';
     const ENVIRONMENT = 'environment';
+    const CHEMISTRY = 'chemistry';
     const EVENT = 'event';
     const INFORMATION = 'information';
     const SCHOOL = 'school';
-    const COURSE = 'course';
 }

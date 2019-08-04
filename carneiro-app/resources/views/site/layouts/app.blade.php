@@ -41,27 +41,20 @@
       <div class="logo float-left">
         <!-- image logo -->
         <h1 class="text-light"><a href="#header" class="scrollto"><span><a href="#">Colégio</a></span></a></h1>
-        Francisco Carneiro Martins
+        Estadual Francisco Carneiro Martins
         <!-- <a href="#intro" class="scrollto"><img src="img/header.png" alt="" class="img-fluid">Colégio</strong></a> -->
       </div>
 
       <nav class="main-nav float-right d-none d-lg-block">
         <ul>
+          <li><a href="#courses">Cursos</a></li>
+          <li><a href="#news">Notícias</a></li>
+          <li><a href="#gallery">Galeria</strong></a></li>
+
           <li class="active"><a href="#why-us">Utilidades</strong></a></li>
           <li><a href="#institution">Institucional</strong></a></li>
-          <li><a href="#portfolio">Galeria</strong></a></li>
-          <li><a href="#news">Notícias</a></li>
           <li><a href="#team">Colaboradores</a></li>
           <li><a href="#contact">Localização</a></li>
-          <li class="drop-down"><a href="#courses">Cursos</a>
-            <ul>
-              <li><a href="#">Administração</a>
-              </li>
-              <li><a href="#">Informática</a></li>
-              <li><a href="#">Secretariado</a></li>
-              <li><a href="#">Eletrônica</a></li>
-            </ul>
-          </li>
         </ul>
       </nav>
     </div>
@@ -102,7 +95,25 @@
   <!-- <script src="contactform/contactform.js"></script> -->
 
   <!-- Template Main Javascript File -->
+  <script src="{{asset('site-assets/js/gallery.js')}}"></script>
   <script src="{{asset('site-assets/js/main.js')}}"></script>
+  <script>
+    $(document).ready(function () {
+      $(document).on('click', '.pagination a', function (event) {
+        event.preventDefault();
+        var page = $(this).attr('href').split('page=')[1];
+        fetch_data(page);
+      });
+      function fetch_data(page) {
+        $.ajax({
+          url: "/paginate?page=" + page,
+          success: function (data) {
+            $('#gallery').html(data);
+          }
+        });
+      }
+    });
+  </script>
 
 </body>
 

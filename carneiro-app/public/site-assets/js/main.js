@@ -100,11 +100,11 @@
 
   // Porfolio isotope and filter
   $(window).on('load', function () {
-    var portfolioIsotope = $('.portfolio-container').isotope({
-      itemSelector: '.portfolio-item'
+    var portfolioIsotope = $('.gallery-container').isotope({
+      itemSelector: '.gallery-item'
     });
-    $('#portfolio-flters li').on( 'click', function() {
-      $("#portfolio-flters li").removeClass('filter-active');
+    $('#gallery-flters li').on( 'click', function() {
+      $("#gallery-flters li").removeClass('filter-active');
       $(this).addClass('filter-active');
   
       portfolioIsotope.isotope({ filter: $(this).data('filter') });
@@ -132,11 +132,11 @@
 });
 
 
-// Initialize Venobox
-$('.venobox').venobox({
-  bgcolor: '',
-  overlayColor: 'rgba(6, 12, 34, 0.85)',
-  closeBackground: '',
-  closeColor: '#fff'
-});
+// // Initialize Venobox
+// $('.venobox').venobox({
+//   bgcolor: '',
+//   overlayColor: 'rgba(6, 12, 34, 0.85)',
+//   closeBackground: '',
+//   closeColor: '#fff'
+// });
 

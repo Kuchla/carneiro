@@ -9,9 +9,9 @@
 
         <div class="row no-gutters courses-wrap clearfix wow fadeInUp">
             @foreach ($courses as $course)
-            <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="">
                 <div class="client-logo">
-                    <a href="">
+                    <a href="{{ route('site.courses.show', $course->id) }}">
                         <img src="{{ url('storage/'.$course->logo) }}" class="img-fluid" alt="">
                     </a>
                 </div>

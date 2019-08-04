@@ -17,4 +17,9 @@ class News extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function setNewsImageAttribute($value)
+    {
+        $this->attributes['image'] = is_null($value) ? $this->image :  $value;
+    }
 }

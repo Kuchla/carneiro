@@ -12,4 +12,9 @@ class Gallery extends Model
     protected $fillable = [
         'description', 'image', 'category', 'user_id'
     ];
+
+    public function setGalleryImageAttribute($value)
+    {
+        $this->attributes['image'] = is_null($value) ? $this->image :  $value;
+    }
 }

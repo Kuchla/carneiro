@@ -51,13 +51,12 @@ class CourseController extends Controller
     {
         $this->validation($request);
 
-        dd($request);
         $course->user_id = Auth::id();
         $course->name = $request->course['name'];
         $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
-        $course->logo = $request->course['logo']->store('logos');
-        $course->schedules = $request->course['schedules']->store('schedules');
+        $course->logo_course = isset($request->course['logo']) ? $request->course['logo']->store('logos') : null;
+        $course->schedules_course = isset($request->course['schedules']) ? $request->course['schedules']->store('schedules') : null;
         $course->update();
         
         return redirect(route('admin.courses.show', compact('course')));
@@ -73,8 +72,8 @@ class CourseController extends Controller
         $request->validate([
            'course.name'        => 'required|min:4|max:50',
            'course.duration'    => 'required|min:4|max:50',
-           'course.logo'        => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-           'course.schedules'   => 'required|mimes:pdf|max:2048',
+           'course.logo'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
+           'course.schedules'   => $request->isMethod('post') ? 'required|mimes:pdf' : 'nullable',
            'course.description' => 'required|min:4',
        ]);
     }

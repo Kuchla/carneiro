@@ -5,14 +5,15 @@
     <div class="container">
 
         <header class="section-header">
-            <h3 class="section-title">Notícias e Eventos</h3>
+            <h3 class="section-title">Notícias</h3>
         </header>
 
         <div class="row">
             <div class="col-lg-12">
                 <ul id="news-flters">
-                    <li data-filter="*" class="filter-active">Notícias</li>
                     <li data-filter=".filter-app">Eventos</li>
+                    <li data-filter=".filter-app">Informações</li>
+                    <li data-filter="*" class="filter-active">Ver todas</li>
                 </ul>
             </div>
         </div>
@@ -43,8 +44,8 @@
                                                     <!--thumbnail img-->
                                                     <div class="ratio_left-cover-1 image-wrapper">
                                                         <a
-                                                            href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
-                                                            <img class="img-fluid w-100"
+                                                            href="{{ route('site.news.show', $news->first()->id) }}">
+                                                            <img class="border-1 rounded-1 img-fluid w-100"
                                                                 src="{{ url('storage/'.$news->first()->image) }}"
                                                                 alt="Image description">
                                                         </a>
@@ -52,7 +53,7 @@
                                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                                         <!--title-->
                                                         <a
-                                                            href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                            href="{{ route('site.news.show', $news->first()->id) }}">
                                                             <h2 class="h3 post-title text-white my-1">{{$news->first()->title}}</h2>
                                                         </a>
                                                         <!-- meta title -->
@@ -89,12 +90,12 @@
                                     <!--news box-->
                                     @if (!$loop->first)
                                     <div class="col-6 pb-1 pt-0 pr-1">
-                                        <div class="card border-0 rounded-0 text-white overflow zoom">
+                                        <div class="card border-1 rounded-1 text-white overflow zoom">
                                             <div class="position-relative">
                                                 <!--thumbnail img-->
                                                 <div class="ratio_right-cover-2 image-wrapper">
-                                                    <a href="#">
-                                                        <img class="img-fluid"
+                                                    <a href="{{ route('site.news.show', $news->id) }}">
+                                                        <img class="rounded img-fluid"
                                                         src="{{ url('storage/'.$news->image) }}"
                                                             alt="Image description">
                                                     </a>
@@ -106,7 +107,7 @@
 
                                                     <!--title-->
                                                     <a
-                                                        href="https://bootstrap.news/bootstrap-4-template-news-portal-magazine/">
+                                                        href="{{ route('site.news.show', $news->first()->id) }}">
                                                         <h2 class="h5 text-white my-1">{{ $news->title }}</h2>
                                                     </a>
                                                 </div>
@@ -121,9 +122,9 @@
                             <!--End box news-->
 
                         </div>
-                        <p>
+                        <!-- <p>
                             <center><strong><a href="#">Ver todas as notícias >></a></strong> </center>
-                        </p>
+                        </p> -->
                     </div>
                     <!--end code-->
                 </div>

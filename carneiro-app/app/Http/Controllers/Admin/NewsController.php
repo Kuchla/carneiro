@@ -76,7 +76,7 @@ class NewsController extends Controller
         $news->title = $request->news['title'];
         $news->category = $request->news['category'];
         $news->description = $request->news['description'];
-        $news->image = $request->news['image']->store('news');
+        $news->news_image = isset($request->news['image']) ? $request->news['image']->store('news') : null;
         $news->update();
         
         return redirect(route('admin.news.show', compact('news')));
@@ -92,7 +92,7 @@ class NewsController extends Controller
         $request->validate([
            'news.title'        => 'required|min:4|max:50',
            'news.category'    => 'required|not_in:Selecione',
-           'news.image'        => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           'news.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
            'news.description' => 'required|min:50',
        ]);
     }
