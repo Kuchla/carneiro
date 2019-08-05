@@ -1,9 +1,9 @@
-export default () => {
-    $(document).ready(function() {
-        alert($('.gallery-menu').val());
-    }); 
+// export default () => {
+//     $(document).ready(function() {
+//         alert($('.gallery-menu').val());
+//     }); 
     
-}
+// }
 
 // const fetchBooks = (institution_id, diploma_scope) => {
 //     $.ajax({

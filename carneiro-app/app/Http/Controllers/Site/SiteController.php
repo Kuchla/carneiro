@@ -27,18 +27,33 @@ class SiteController extends Controller
 
     public function paginateGallery(Request $request)
     {
-        // dd('44');
         if ($request->ajax()) {
             $categories = Gallery::distinct()->pluck('category');
+            if($_GET['category'] == 'Todas'){
+                $galleries = Gallery::paginate(3);
+            }
+            else{
+                $galleries = Gallery::where('category', $_GET['category'])->paginate(3);
 
-            $galleries = Gallery::paginate(3);
-            // dd($galleries);
+            }
 
             return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
           }
-        // dd('dsa');
-        // $galleries = Gallery::get()->where('category', $category);
-        // return back();
+    }
+
+    public function searchGallery($category)
+    {
+        $categories = Gallery::distinct()->pluck('category');
+
+        if($category == 'Todas'){
+            $galleries = Gallery::paginate(3);
+        }
+        else {
+            $galleries = Gallery::where('category', $category)->paginate(3);
+        }
+        // dd($galleries);
+        return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
+
     }
 
     public function course($id){

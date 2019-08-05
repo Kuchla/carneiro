@@ -65,10 +65,10 @@
   
     <div class="container">
       <div class="copyright">
-        &copy; Copyright JK</strong>. All Rights Reserved
+        &copy; Copyright Josni Kuchla</strong>. All Rights Reserved
       </div>
       <div class="credits">
-        Designed by <a href="#">JK</a>
+        Designed by <a href="#">Josni Kuchla</a>
       </div>
     </div>
   </footer><!-- #footer -->
@@ -98,21 +98,54 @@
   <script src="{{asset('site-assets/js/gallery.js')}}"></script>
   <script src="{{asset('site-assets/js/main.js')}}"></script>
   <script>
+
+var x = clickfunc(); 
+
+console.log(x);
+
+
+function clickfunc() {
+    var t = $('#gnt').text();
+    return t;
+ }
+
+ 
+
     $(document).ready(function () {
       $(document).on('click', '.pagination a', function (event) {
         event.preventDefault();
         var page = $(this).attr('href').split('page=')[1];
-        fetch_data(page);
+        var category = $('#category').text();
+        fetch_data(page, category);
       });
-      function fetch_data(page) {
+      function fetch_data(page, category) {
         $.ajax({
-          url: "/paginate?page=" + page,
+          url: "/paginate?page=" + page+"&category=" + category ,
           success: function (data) {
             $('#gallery').html(data);
           }
         });
       }
     });
+
+    $(document).ready(function () {
+      $(document).on('click', '#gallery-flters li', function (event) {
+        event.preventDefault();
+        var category = $(this).text()
+        fetch_data(category);
+      });
+
+      function fetch_data(category) {
+        $.ajax({
+          type: 'GET',
+          url: '/gallery/' + category,
+          success: function (data) {
+            $('#gallery').html(data);
+          }
+        });
+      }
+    });
+
   </script>
 
 </body>

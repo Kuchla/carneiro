@@ -11,9 +11,9 @@
     <div class="row">
       <div class="col-lg-12">
         <ul id="gallery-flters">
-          <li data-filter="">Todas</li>
+          <li lass="gallery-menu" id="gmt" onclick='clickfunc(this)' data-filter="Todas">Todas</li>
           @foreach ($categories as $category)
-          <li data-filter=".{{$category}}">{{ $category }}</li>
+          <li class="gallery-menu" class="filter-active" id="gm" data-filter=".{{$category}}">{{ $category }}</li>
           @endforeach
         </ul>
       </div>
@@ -21,11 +21,11 @@
     <div class="row gallery-container">
       @foreach ($galleries as $gallery)
       
-      <div class="col-lg-4 col-md-6 gallery-item {{$gallery->category}}">
+      <div class="col-lg-4 col-md-6 gallery-item {{ $gallery->category }}">
         <div class="gallery-wrap">
           <img src="{{ url('storage/'.$gallery->image) }}" class="img-fluid" alt="">
           <div class="gallery-info">
-            <h4><a href="#">{{ $gallery->category }}</a></h4>
+            <h4><a id="category" href="#">{{ $gallery->category }}</a></h4>
             <div>
               <a href="{{ url('storage/'.$gallery->image) }}" data-lightbox="gallery" data-title="{{ $gallery->description}}" class="link-preview"
                 title="Visualizar"><i class="ion ion-eye"></i></a>
