@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Institutional;
+use Illuminate\Support\Facades\Auth;
 
 class InstitutionalController extends Controller
 {
@@ -27,7 +29,7 @@ class InstitutionalController extends Controller
         $institutional->about = $request->institutional['about'];
         $institutional->save();
 
-        return redirect(route('admin.institutional.show', compact('institutional')));
+        return redirect(route('admin.institutionals.show', compact('institutional')));
     }
 
     public function edit(Institutional $institutional)

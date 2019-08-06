@@ -35,10 +35,24 @@ return [
         'image'             => 'Imagem',
         'description'       => 'Texto',
     ],
+    'collaborator'                  =>  [
+        'page'              => 'Colaboradores',   
+        'name'             =>  'Nome',
+        'category'          =>  'Categoria',
+        'image'             => 'Imagem',
+        'role'       => 'Cargo',
+        'active'       => 'Ativo',
+
+    ],
     'link'                  =>  [
         'page'              =>  'Links',   
         'title'             =>  'Título',
         'url'               =>  'URL',
+    ],
+    'institutional'                  =>  [
+        'page'              =>  'Institutional',   
+        'title'             =>  'Título',
+        'about'               =>  'Sobre a instituição',
     ],
     'gallery'                  =>  [
         'page'              =>  'Galeria',   

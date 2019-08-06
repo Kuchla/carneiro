@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Enums\ColaboratorCategory;
 
 class CreateCollaboratorsTable extends Migration
 {
@@ -17,7 +18,8 @@ class CreateCollaboratorsTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('role');
-            $table->string('photo');
+            $table->enum('category', CollaboratorCategory::toArray());
+            $table->string('image');
             $table->boolean('active')->default(0);
 
             $table->unsignedBigInteger('user_id');

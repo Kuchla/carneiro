@@ -189,9 +189,21 @@ return [
             'image'           => 'imagem',
             'description'       => 'texto da notícia',
         ],
+        'collaborator'                  =>  [
+            'name'             =>  'nome',
+            'category'          =>  'categoria',
+            'image'           => 'imagem',
+            'role'       => 'cargo',
+            'active'       => 'ativo',
+
+        ],
         'link'                  =>  [
             'title'             =>  'título',
             'url'               =>  'url',
+        ],
+        'institutional'         =>  [
+            'title'             =>  'título',
+            'about'               =>  'sobre a instituição',
         ],
     ],
 ];

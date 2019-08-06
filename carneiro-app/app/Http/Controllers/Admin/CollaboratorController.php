@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Collaborator;
+use App\Enums\CollaboratorCategory;
+use BenSampo\Enum\Rules\EnumValue;
 
 class CollaboratorController extends Controller
 {
@@ -16,7 +18,8 @@ class CollaboratorController extends Controller
 
     public function create()
     {
-        return view('admin.collaborator.create');
+        $categories = CollaboratorCategory::toSelectArray();
+        return view('admin.collaborator.create', compact('categories'));
     }
 
     public function store(Request $request, Collaborator $collaborator)
@@ -26,7 +29,8 @@ class CollaboratorController extends Controller
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
-        $collaborator->photo = $request->photo['photo']->store('photos');
+        $collaborator->category = $request->category['category'];
+        $collaborator->image = $request->image['image']->store('collaborators');
         $collaborator->active = $request->active['active'];
         $collaborator->save();
 
@@ -51,7 +55,8 @@ class CollaboratorController extends Controller
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
-        $collaborator->photo = $request->photo['photo']->store('photos');
+        $collaborator->category = $request->category['category'];
+        $collaborator->image = $request->image['image']->store('photos');
         $collaborator->active = $request->active['active'];
         $collaborator->update();
         
@@ -68,7 +73,8 @@ class CollaboratorController extends Controller
         $request->validate([
            'collaborator.name'   => 'required|min:4|max:50',
            'collaborator.role'   => 'required|min:4|max:50',
-           'collaborator.photo'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           'collaborator.category'   => 'required',
+           'collaborator.image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        ]);
     }
 }

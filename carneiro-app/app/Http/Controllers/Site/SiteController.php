@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Course;
 use App\News;
 use App\Link;
+use App\Institutional;
 use App\Gallery;
 use Illuminate\Support\Facades\DB;
 
@@ -19,10 +20,11 @@ class SiteController extends Controller
         $courses = Course::all();
         $news = News::all();
         $links = Link::all();
+        $institutional = Institutional::first();
         $galleries = Gallery::paginate(3);
         $categories = Gallery::distinct()->pluck('category');
 
-        return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories'));
+        return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories', 'institutional'));
     }
 
     public function paginateGallery(Request $request)
@@ -76,5 +78,6 @@ class SiteController extends Controller
         // dd($galleries);
         return view('site.news.index', compact('news'));
     }
+
 
 }

@@ -52,7 +52,7 @@
           <li><a href="#gallery">Galeria</strong></a></li>
 
           <li class="active"><a href="#why-us">Utilidades</strong></a></li>
-          <li><a href="#institution">Institucional</strong></a></li>
+          <li><a href="#institutional">Institucional</strong></a></li>
           <li><a href="#team">Colaboradores</a></li>
           <li><a href="#contact">Localização</a></li>
         </ul>
