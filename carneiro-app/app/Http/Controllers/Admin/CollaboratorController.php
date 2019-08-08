@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Collaborator;
 use App\Enums\CollaboratorCategory;
 use BenSampo\Enum\Rules\EnumValue;
+use Illuminate\Support\Facades\Auth;
 
 class CollaboratorController extends Controller
 {
@@ -26,11 +27,13 @@ class CollaboratorController extends Controller
     {
         $this->validation($request);
 
+        // dd($request);
+
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
         $collaborator->category = $request->category['category'];
-        $collaborator->image = $request->image['image']->store('collaborators');
+        $collaborator->image = $request->collaborator['image']->store('collaborators');
         $collaborator->active = $request->active['active'];
         $collaborator->save();
 
@@ -56,7 +59,7 @@ class CollaboratorController extends Controller
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
         $collaborator->category = $request->category['category'];
-        $collaborator->image = $request->image['image']->store('photos');
+        $collaborator->collaborator_image = $request->image['image']->store('colaborators');
         $collaborator->active = $request->active['active'];
         $collaborator->update();
         
