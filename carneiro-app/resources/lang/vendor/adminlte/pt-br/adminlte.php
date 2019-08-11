@@ -41,7 +41,7 @@ return [
         'category'          =>  'Categoria',
         'image'             => 'Imagem',
         'role'       => 'Cargo',
-        'active'       => 'Ativo',
+        'active'       => 'Status',
 
     ],
     'link'                  =>  [

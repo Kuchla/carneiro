@@ -21,22 +21,10 @@
         <div class="widget-user-image">
             <img class="img" src="{{ url('storage/'.@$collaborator->image) }}" alt="logo">
         </div>
-        <h3 class="widget-user-username"><strong>Nome do Curso: </strong> {{$collaborator->name}}</h3>
-        <h5 class="widget-user-desc"><strong>Duração do Curso: </strong> {{$collaborator->role}}
-        <h5 class="widget-user-desc"><strong>Duração do Curso: </strong> {{$collaborator->category}}
-
-        </h5>
-        <h5 class="widget-user-desc">
-            <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#ExemploModalCentralizado">Visualizar Horarios
-            </button>
-        </h5>
-    </div>
-    <div class="box-footer no-padding">
-        <ul class="nav nav-stacked">
-            <li><strong>Descrição: </strong> {!! $collaborator->description !!}
-            </li>
-        </ul>
+        <h3 class="widget-user-username"><strong>Nome do Colaborador: </strong> {{$collaborator->name}}</h3>
+        <h5 class="widget-user-desc"><strong>Cargo: </strong> {{$collaborator->role}}
+        <h5 class="widget-user-desc"><strong>Categoria do Cargo: </strong> {{$collaborator->category}}
+        <h5 class="widget-user-desc"><strong>Status: </strong> {{$collaborator->active ? 'Ativo' : 'Desativado'}}
     </div>
 </div>
 

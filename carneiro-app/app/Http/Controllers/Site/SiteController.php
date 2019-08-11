@@ -9,6 +9,7 @@ use App\News;
 use App\Link;
 use App\Institutional;
 use App\Gallery;
+use App\Collaborator;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,9 +23,10 @@ class SiteController extends Controller
         $links = Link::all();
         $institutional = Institutional::first();
         $galleries = Gallery::paginate(3);
+        $collaborators = Collaborator::where('category', 'Direction')->get();
         $categories = Gallery::distinct()->pluck('category');
 
-        return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories', 'institutional'));
+        return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories', 'institutional', 'collaborators'));
     }
 
     public function paginateGallery(Request $request)

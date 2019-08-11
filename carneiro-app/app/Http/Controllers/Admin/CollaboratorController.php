@@ -26,15 +26,17 @@ class CollaboratorController extends Controller
     public function store(Request $request, Collaborator $collaborator)
     {
         $this->validation($request);
+        // dd(isset($request->collaborator['active'])? 1 : 0);
 
-        // dd($request);
+        // $collaborator->active = (!isset($request->collaborator['active']))? 0 : 1;
+        // dd($collaborator->active);
 
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
-        $collaborator->category = $request->category['category'];
+        $collaborator->category = $request->collaborator['category'];
         $collaborator->image = $request->collaborator['image']->store('collaborators');
-        $collaborator->active = $request->active['active'];
+        $collaborator->active = isset($request->collaborator['active']) ? 1 : 0;
         $collaborator->save();
 
         return redirect(route('admin.collaborators.show', compact('collaborator')));
@@ -42,7 +44,8 @@ class CollaboratorController extends Controller
 
     public function edit(Collaborator $collaborator)
     {
-        return view('admin.collaborator.edit', compact('collaborator'));
+        $categories = CollaboratorCategory::toSelectArray();
+        return view('admin.collaborator.edit', compact('collaborator', 'categories'));
     }
 
     public function destroy(Collaborator $collaborator)
@@ -58,9 +61,9 @@ class CollaboratorController extends Controller
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
         $collaborator->role = $request->collaborator['role'];
-        $collaborator->category = $request->category['category'];
-        $collaborator->collaborator_image = $request->image['image']->store('colaborators');
-        $collaborator->active = $request->active['active'];
+        $collaborator->category = $request->collaborator['category'];
+        $collaborator->collaborator_image = isset($request->collaborator['image']) ? $request->collaborator['image']->store('collaborators') : null;
+        $collaborator->active = isset($request->collaborator['active']) ? 1 : 0;
         $collaborator->update();
         
         return redirect(route('admin.collaborators.show', compact('collaborator')));
@@ -77,7 +80,7 @@ class CollaboratorController extends Controller
            'collaborator.name'   => 'required|min:4|max:50',
            'collaborator.role'   => 'required|min:4|max:50',
            'collaborator.category'   => 'required',
-           'collaborator.image'  => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+           'collaborator.image'  => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
        ]);
     }
 }

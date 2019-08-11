@@ -13,7 +13,6 @@
 
 @section('content')
 
-@include('admin.collaborator.partials._summernote_pt_BR')
 <form method="post" action="{{ route('admin.collaborators.update', ['collaborator' => $collaborator->id]) }}"  enctype="multipart/form-data">
     @method('PATCH')
 

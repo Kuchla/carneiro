@@ -18,7 +18,8 @@
                 @endif
             </div>
 
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('collaborator.category') ? 'has-error' : '' }}">
+            <div
+                class="form-group col-md-6 has-feedback {{ $errors->has('collaborator.category') ? 'has-error' : '' }}">
                 <label for="collaborator_category">{{ trans('adminlte::adminlte.collaborator.category') }}</label>
                 <select class="form-control select2" name="collaborator[category]">
                     <option>Selecione</option>
@@ -38,21 +39,31 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('collaborator.image') ? 'has-error' : '' }}">
+            <div class="form-group col-md-3 has-feedback {{ $errors->has('collaborator.image') ? 'has-error' : '' }}">
                 <label for="collaborator_image">{{ trans('adminlte::adminlte.collaborator.image') }}</label>
 
                 <p>
-                    <img id="show_img" src="{{ @url('storage/'.$collaborator->mage) }}" alt="" style="max-width: 200px;">
+                    <img id="show_img" src="{{ @url('storage/'.$collaborator->image) }}" alt=""
+                        style="max-width: 200px;">
                 </p>
                 <input type="file" name="collaborator[image]" onchange="readURL(this);" class="custom-file-input"
-                    id="collaborator_image" aria-describedby="image" value="{{ @url('storage/'.$collaborator->image) }}"
-                    >
+                    id="collaborator_image" aria-describedby="image"
+                    value="{{ @url('storage/'.$collaborator->image) }}">
                 <label class="custom-file-label" for="image">Arquivos: JPG e PNG.</label>
                 @if ($errors->has('collaborator.image'))
                 <span class="help-block">
                     <strong>{{ $errors->first('collaborator.image') }}</strong>
                 </span>
                 @endif
+            </div>
+
+            <div class="form-group form-check-inline col-md-3 has-feedback">
+                <label for="collaborator_image">{{ trans('adminlte::adminlte.collaborator.active') }}</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="collaborator[active]" type="checkbox" id="collaborator_active" 
+                    @if(old('collaborator.active', @$collaborator->active)) checked @endif>
+                    <label class="form-check-label" for="inlineCheckbox1">Ativo</label>
+                </div>
             </div>
 
             <div class="form-group col-md-6 has-feedback {{ $errors->has('collaborator.role') ? 'has-error' : '' }}">
@@ -68,11 +79,11 @@
             </div>
 
 
-            
+
         </div>
 
         <div class="row">
-            
+
         </div>
 
         <div class="row">
@@ -81,7 +92,7 @@
                     <button type="submit" class="btn btn-success">
                         {{ trans('adminlte::adminlte.btn.save') }}
                     </button>
-                    <a class="btn btn-primary" href="{{ route('admin.courses.index') }}">
+                    <a class="btn btn-primary" href="{{ route('admin.collaborators.index') }}">
                         {{ trans('adminlte::adminlte.btn.cancel') }}
                     </a>
                 </div>
@@ -104,7 +115,7 @@
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-           
+
             reader.onload = function (e) {
                 $('#show_img')
                     .attr('src', e.target.result);
