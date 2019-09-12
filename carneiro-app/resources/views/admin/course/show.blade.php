@@ -26,7 +26,7 @@
         </h5>
         <h5 class="widget-user-desc">
             <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#ExemploModalCentralizado">Visualizar Horarios
+                data-target="#ExemploModalCentralizado">Visualizar conteúdo do curso
             </button>
         </h5>
     </div>

@@ -12,8 +12,6 @@ use App\Gallery;
 use App\Collaborator;
 use Illuminate\Support\Facades\DB;
 
-
-
 class SiteController extends Controller
 {
     public function index()
@@ -22,8 +20,8 @@ class SiteController extends Controller
         $news = News::all();
         $links = Link::all();
         $institutional = Institutional::first();
-        $galleries = Gallery::paginate(3);
-        $collaborators = Collaborator::where('category', 'Direction')->get();
+        $galleries = Gallery::paginate(6);
+        $collaborators = Collaborator::where('category', 'Direction')->where('active', 1)->get();
         $categories = Gallery::distinct()->pluck('category');
 
         return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories', 'institutional', 'collaborators'));
@@ -40,7 +38,6 @@ class SiteController extends Controller
                 $galleries = Gallery::where('category', $_GET['category'])->paginate(3);
 
             }
-
             return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
           }
     }
@@ -50,36 +47,26 @@ class SiteController extends Controller
         $categories = Gallery::distinct()->pluck('category');
 
         if($category == 'Todas'){
-            $galleries = Gallery::paginate(3);
+            $galleries = Gallery::paginate(6);
         }
         else {
-            $galleries = Gallery::where('category', $category)->paginate(3);
+            $galleries = Gallery::where('category', $category)->paginate(6);
         }
-        // dd($galleries);
         return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
-
     }
 
     public function course($id){
         $course = Course::find($id);
-        // $galleries = Gallery::where('category', $course->name);
-        // dd($galleries);
         return view('site.course.index', compact('course', 'galleries'));
     }
 
     public function news($id){
         $news = News::find($id);
-        // $galleries = Gallery::where('category', $course->name);
-        // dd($galleries);
         return view('site.news.show', compact('news'));
     }
 
     public function newsIndex(){
         $news = News::all();
-        // $galleries = Gallery::where('category', $course->name);
-        // dd($galleries);
         return view('site.news.index', compact('news'));
     }
-
-
 }

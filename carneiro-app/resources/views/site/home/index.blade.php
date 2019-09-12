@@ -10,15 +10,26 @@
     @include('site.home.partials._news')
 @endif
 
-@include('site.home.partials._courses')
-@include('site.home.partials._gallery')
-@include('site.home.partials._team')
+@if(!empty($courses->first()))
+    @include('site.home.partials._courses')
+@endif
 
-@if(!empty($institutionals))
+@if(!empty($galleries->first()))
+    @include('site.home.partials._gallery')
+@endif
+
+@if(!empty($collaborators->first()))
+    @include('site.home.partials._team')
+@endif    
+
+@if(!empty($institutional))
     @include('site.home.partials._institution')
 @endif
 
-@include('site.home.partials._links')
+@if(!empty($links))
+    @include('site.home.partials._links')
+@endif
+
 @include('site.home.partials._contact')
 
 @endsection

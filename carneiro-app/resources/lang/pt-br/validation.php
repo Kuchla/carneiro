@@ -180,7 +180,7 @@ return [
             'name'              =>  'nome do curso',
             'duration'          =>  'duração do curso',
             'logo'              => 'logo',
-            'schedules'         => 'horarios',
+            'schedules'         => 'conteúdo do curso',
             'description'       => 'descrição do curso',
         ],
         'news'                  =>  [

@@ -1012,7 +1012,7 @@ h6 {
 --------------------------------*/
 
 #institutional {
-  padding-top: 20px;
+  padding-top: 23px;
   padding-bottom: 20px;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   background: #ebeef1;
@@ -1020,8 +1020,6 @@ h6 {
 
 #institutional .courses-wrap {
   padding-top: 22px;
-  border-top: 1px solid #d6eaff;
-  border-left: 1px solid #d6eaff;
   margin-bottom: 30px;
   justify-content: center;
 }

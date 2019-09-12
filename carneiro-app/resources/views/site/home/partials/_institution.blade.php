@@ -16,7 +16,6 @@
                       <div class="card-body">
                         <h5 class="card-title"></h5>
                         <p class="card-text">{!! @$institutional->about !!}</p>
-                        <a href="#" class="btn btn-primary">Ler tudo</a>
                       </div>
                   </div>
           </div>

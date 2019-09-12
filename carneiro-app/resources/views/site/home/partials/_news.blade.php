@@ -39,7 +39,7 @@
                                     <div class="carousel-inner">
                                         <!--Item slider-->
                                         <div class="carousel-item active">
-                                            <div class="card border-0 rounded-0 text-light overflow zoom">
+                                            <div class="card border-0 rounded-1 text-light overflow zoom">
                                                 <div class="position-relative">
                                                     <!--thumbnail img-->
                                                     <div class="ratio_left-cover-1 image-wrapper">
@@ -88,7 +88,6 @@
                                 <div class="row">
                                     @foreach ($news as $news)
                                     <!--news box-->
-                                    @if (!$loop->first)
                                     <div class="col-6 pb-1 pt-0 pr-1">
                                         <div class="card border-1 rounded-1 text-white overflow zoom">
                                             <div class="position-relative">
@@ -114,7 +113,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endif
+                                    
 
                                     @endforeach
                                 </div>

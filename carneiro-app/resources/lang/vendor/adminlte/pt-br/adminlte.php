@@ -25,7 +25,7 @@ return [
         'duration'                => 'Duração',
         'name'                    => 'Nome',  
         'logo'                    => 'Logo',    
-        'schedules'               => 'Horarios',
+        'schedules'               => 'Conteúdo do curso',
         'description'             => 'Descição',  
     ],
     'news'                  =>  [

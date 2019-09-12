@@ -55,7 +55,7 @@
                 @isset($course->schedules)
                 <p>
                     <button type="button" class="btn btn-secondary" data-toggle="modal"
-                        data-target="#ExemploModalCentralizado">Horarios
+                        data-target="#ExemploModalCentralizado">Conteúdo do curso
                     </button>
                 </p>
                 @endisset
