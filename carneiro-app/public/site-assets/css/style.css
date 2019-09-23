@@ -123,7 +123,7 @@ h6 {
   z-index: 997;
   transition: all 0.5s;
   padding: 20px 0;
-  background: #dee2e6;
+  background: #fff;
   box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.3);
 }
 
@@ -134,14 +134,24 @@ h6 {
 }
 
 #header .logo h1 {
-  font-size: 36px;
+  font-size: 27px;
   margin: 0;
-  padding: 0;
+  padding: 5px 0px;
   line-height: 1;
   font-weight: 400;
-  letter-spacing: 3px;
+  letter-spacing: 0px;
   text-transform: uppercase;
 }
+#header .logo h5 {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    color: #00366f;
+    line-height: 1;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+  }
 
 #header .logo h1 a,
 #header .logo h1 a:hover {
@@ -238,7 +248,7 @@ h6 {
 /* .main-nav {
   /* Drop Down */
   /* Deep Drop Down */
-/* } */ 
+/* } */
 
 .main-nav,
 .main-nav * {
@@ -257,9 +267,9 @@ h6 {
   display: block;
   position: relative;
   color: #004289;
-  padding: 24px 15px;
+  padding: 16px 7px;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 17px;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
 }
@@ -1015,7 +1025,7 @@ h6 {
   padding-top: 23px;
   padding-bottom: 20px;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  background: #ebeef1;
+  background: #fff;
 }
 
 #institutional .courses-wrap {
@@ -1024,63 +1034,13 @@ h6 {
   justify-content: center;
 }
 
-/* #testimonials .section-header {
-  margin-bottom: 40px;
-} */
-
-/* #testimonials .testimonial-item .testimonial-img {
-  width: 120px;
-  border-radius: 50%;
-  border: 4px solid #fff;
-  float: left;
-}
-
-#testimonials .testimonial-item h3 {
-  font-size: 20px;
-  font-weight: bold;
-  margin: 10px 0 5px 0;
-  color: #111;
-  margin-left: 140px;
-}
-
-#testimonials .testimonial-item h4 {
-  font-size: 14px;
-  color: #999;
-  margin: 0 0 15px 0;
-  margin-left: 140px;
-}
-
-#testimonials .testimonial-item p {
-  font-style: italic;
-  margin: 0 0 15px 140px;
-}
-
-#testimonials .owl-nav,
-#testimonials .owl-dots {
-  margin-top: 5px;
-  text-align: center;
-}
-
-#testimonials .owl-dot {
-  display: inline-block;
-  margin: 0 5px;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: #ddd;
-}
-
-#testimonials .owl-dot.active {
-  background-color: #007bff;
-} */
-
 /* Team Section
 --------------------------------*/
 
 #team {
-  background: #fff;
+  background: #ecf5ff;
   padding: 60px 0;
-  box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
 }
 
 #team .team-wrap {
@@ -1174,7 +1134,7 @@ h6 {
   padding: 150px 0;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   background: #ffffff;
-  
+
 }
 
 /* courses Section
@@ -1183,19 +1143,17 @@ h6 {
 #courses {
   padding: 20px 0;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  background: #ebeef1;
+  background: #ecf5ff;
 }
 
 #courses .courses-wrap {
   padding-top: 10px;
-  border-top: 1px solid #d6eaff;
-  border-left: 1px solid #d6eaff;
   margin-bottom: 30px;
   justify-content: center;
 }
 
 #courses .client-logo {
-  padding: 7px;
+  padding: 3px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -1208,11 +1166,10 @@ h6 {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  border: 1px solid #dadbe2;
+  /* border: 0px solid #dadbe2; */
   overflow: hidden;
-  background: rgb(253, 253, 251);
+  background: #ecf5ff;
   height: 160px;
-  /* width: 160px; */
 }
 
 #courses .client-logo:hover img {
@@ -1224,6 +1181,7 @@ h6 {
   transition: all 0.4s ease-in-out;
   height: 140px;
   width: 140px;
+  border-radius: 5%;
 
 }
 
@@ -1233,9 +1191,13 @@ h6 {
 #institution {
   padding: 60px 0;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  background: #dee2e657;
-  color: #fafafa;
+  /* background: #dee2e657; */
+  color: #fff;
   padding-bottom: 400px;
+}
+
+#institution .card-color {
+    background-color: ecf5ff;
 }
 
 #institution .institution-wrap {
