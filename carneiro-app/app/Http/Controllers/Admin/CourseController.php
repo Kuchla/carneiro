@@ -30,7 +30,8 @@ class CourseController extends Controller
         $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
         $course->logo = $request->course['logo']->store('logos');
-        $course->schedules = $request->course['schedules']->store('schedules');
+        $course->schedule_integrated = $request->course['schedule_integrated']->store('schedules');
+        $course->schedule_subsequent = $request->course['schedule_subsequent']->store('schedules');
         $course->save();
 
         return redirect(route('admin.courses.show', compact('course')));
@@ -56,9 +57,10 @@ class CourseController extends Controller
         $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
         $course->logo_course = isset($request->course['logo']) ? $request->course['logo']->store('logos') : null;
-        $course->schedules_course = isset($request->course['schedules']) ? $request->course['schedules']->store('schedules') : null;
+        $course->schedule_integrated = $request->course['schedule_integrated']->store('schedules');
+        $course->schedule_subsequent = $request->course['schedule_subsequent']->store('schedules');
         $course->update();
-        
+
         return redirect(route('admin.courses.show', compact('course')));
     }
 
@@ -73,7 +75,8 @@ class CourseController extends Controller
            'course.name'        => 'required|min:4|max:50',
            'course.duration'    => 'required|min:4|max:50',
            'course.logo'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
-           'course.schedules'   => $request->isMethod('post') ? 'required|mimes:pdf' : 'nullable',
+           'course.schedule_integrated'   => 'nullable',
+           'course.schedule_subsequent'   => 'nullable',
            'course.description' => 'required|min:4',
        ]);
     }

@@ -16,7 +16,7 @@
                     R. Dr. Laranjeiras, 916 <br>
                     Centro, Guarapuava - PR<br>
                     CEP: 85010-030 <br>
-                    <strong>Phone:</strong> (42) 3623-2466<br>
+                    <strong>Telefone:</strong> (42) 3623-2466<br>
                     <strong>Atendimento:</strong> Segunda á sexta<br> das 8:00 ás 20:00<br>
                 </p>
             </div>

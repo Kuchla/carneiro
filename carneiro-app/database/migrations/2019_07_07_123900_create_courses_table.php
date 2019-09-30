@@ -19,11 +19,12 @@ class CreateCoursesTable extends Migration
             $table->string('duration');
             $table->longText('description');
             $table->string('logo');
-            $table->string('schedules');
+            $table->string('schedule_integrated');
+            $table->string('schedule_subsequent');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            
+
             $table->timestamps();
         });
     }

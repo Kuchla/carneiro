@@ -2,7 +2,7 @@
 
 return [
     'admin'                       => 'Gerenciar',
-    'id'                          => 'Id',  
+    'id'                          => 'Id',
     'full_name'                   => 'Nome completo',
     'email'                       => 'Email',
     'password'                    => 'Senha',
@@ -19,24 +19,25 @@ return [
     'register_message'            => 'Registrar um novo membro',
     'password_reset_message'      => 'Recuperar senha',
     'reset_password'              => 'Recuperar senha',
-    'send_password_reset_link'    => 'Enviar link de recuperação de senha',     
+    'send_password_reset_link'    => 'Enviar link de recuperação de senha',
     'course'                      =>  [
-        'page'                    => 'Cursos',   
+        'page'                    => 'Cursos',
         'duration'                => 'Duração',
-        'name'                    => 'Nome',  
-        'logo'                    => 'Logo',    
-        'schedules'               => 'Conteúdo do curso',
-        'description'             => 'Descição',  
+        'name'                    => 'Nome',
+        'logo'                    => 'Logo',
+        'schedule_subsequent'     => 'Conteúdo do curso subsequente',
+        'schedule_integrated'     => 'Conteúdo do curso integrado',
+        'description'             => 'Descição',
     ],
     'news'                  =>  [
-        'page'              => 'Notícias',   
+        'page'              => 'Notícias',
         'title'             =>  'Título',
         'category'          =>  'Categoria',
         'image'             => 'Imagem',
         'description'       => 'Texto',
     ],
     'collaborator'                  =>  [
-        'page'              => 'Colaboradores',   
+        'page'              => 'Colaboradores',
         'name'             =>  'Nome',
         'category'          =>  'Categoria',
         'image'             => 'Imagem',
@@ -45,17 +46,17 @@ return [
 
     ],
     'link'                  =>  [
-        'page'              =>  'Links',   
+        'page'              =>  'Links',
         'title'             =>  'Título',
         'url'               =>  'URL',
     ],
     'institutional'                  =>  [
-        'page'              =>  'Institutional',   
+        'page'              =>  'Institutional',
         'title'             =>  'Título',
         'about'               =>  'Sobre a instituição',
     ],
     'gallery'                  =>  [
-        'page'              =>  'Galeria',   
+        'page'              =>  'Galeria',
         'category'          =>  'Categoria',
         'description'       =>  'Descrição',
         'image'             =>  'Imagem',
@@ -64,17 +65,17 @@ return [
         'create'          => 'Criar',
         'edit'            => 'Editar',
         'index'           => 'Índice',
-        'show'            => 'Visualizar',  
+        'show'            => 'Visualizar',
     ],
     'btn'                 =>  [
         'new'                     => 'Novo',
-        'edit'                    => 'Editar', 
+        'edit'                    => 'Editar',
         'show'                    => 'Visualizar',
         'delete'                  => 'Deletar',
-        'cancel'                  => 'Cancelar', 
-        'save'                    => 'Salvar', 
+        'cancel'                  => 'Cancelar',
+        'save'                    => 'Salvar',
 
- 
+
     ],
-        
+
 ];
