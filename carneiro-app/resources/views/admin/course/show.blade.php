@@ -26,7 +26,12 @@
         </h5>
         <h5 class="widget-user-desc">
             <button type="button" class="btn btn-primary" data-toggle="modal"
-                data-target="#ExemploModalCentralizado">Visualizar conteúdo do curso
+                data-target="#integrated">Visualizar ementa do curso integrado
+            </button>
+        </h5>
+        <h5 class="widget-user-desc">
+            <button type="button" class="btn btn-primary" data-toggle="modal"
+                data-target="#subsequente">Visualizar ementa do curso subsequente
             </button>
         </h5>
     </div>
@@ -38,7 +43,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="ExemploModalCentralizado" tabindex="-1" role="dialog"
+<div class="modal fade" id="integrated" tabindex="-1" role="dialog"
     aria-labelledby="TituloModalCentralizado" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
@@ -49,7 +54,23 @@
                 </button>
             </div>
             <div class="modal-body">
-                <embed src="{{ url('storage/'.@$course->schedules) }}" frameborder="0" width="100%" height="150px">
+                <embed src="{{ url('storage/'.@$course->schedule_integrated) }}" frameborder="0" width="100%" height="150px">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="subsequente" tabindex="-1" role="dialog"
+    aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="TituloModalCentralizado">Arquivo PDF</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <embed src="{{ url('storage/'.@$course->schedule_subsequent) }}" frameborder="0" width="100%" height="150px">
             </div>
         </div>
     </div>

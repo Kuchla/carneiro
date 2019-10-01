@@ -13,8 +13,6 @@
 
 @section('content')
 
-@include('admin.course.partials._summernote_pt_BR')
-
 <form method="POST" action="{{ route('admin.courses.store') }}" role="form" enctype="multipart/form-data">
 
     @include('admin.course.partials._form')

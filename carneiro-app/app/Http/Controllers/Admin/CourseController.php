@@ -22,7 +22,6 @@ class CourseController extends Controller
 
     public function store(Request $request, Course $course)
     {
-
         $this->validation($request);
 
         $course->user_id = Auth::id();
@@ -57,8 +56,8 @@ class CourseController extends Controller
         $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
         $course->logo_course = isset($request->course['logo']) ? $request->course['logo']->store('logos') : null;
-        $course->schedule_integrated = $request->course['schedule_integrated']->store('schedules');
-        $course->schedule_subsequent = $request->course['schedule_subsequent']->store('schedules');
+        $course->integrated_schedule = isset($request->course['schedule_integrated']) ? $request->course['schedule_integrated']->store('schedules') : null;
+        $course->subsequent_schedule = isset($request->course['schedule_subsequent']) ? $request->course['schedule_subsequent']->store('schedules') : null;
         $course->update();
 
         return redirect(route('admin.courses.show', compact('course')));

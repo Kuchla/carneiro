@@ -17,4 +17,14 @@ class Course extends Model
     {
         $this->attributes['logo'] = is_null($value) ? $this->logo :  $value;
     }
+
+    public function setSubsequentScheduleAttribute($value)
+    {
+        $this->attributes['schedule_subsequent'] = is_null($value) ? $this->schedule_subsequent :  $value;
+    }
+
+    public function setIntegratedScheduleAttribute($value)
+    {
+        $this->attributes['schedule_integrated'] = is_null($value) ? $this->schedule_integrated :  $value;
+    }
 }

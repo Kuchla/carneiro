@@ -19,7 +19,10 @@
 
                 <h5 class="widget-user-desc">
                     <button type="button" class="btn btn-primary" data-toggle="modal"
-                        data-target="#ExemploModalCentralizado">Conteúdo do curso
+                        data-target="#ExemploModalCentralizado">Ementa curso integrado
+                    </button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                        data-target="#ExemploModalCentralizados">Ementa curso subsequente
                     </button>
                 </h5>
 

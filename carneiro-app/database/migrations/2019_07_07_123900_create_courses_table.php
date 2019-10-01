@@ -19,8 +19,8 @@ class CreateCoursesTable extends Migration
             $table->string('duration');
             $table->longText('description');
             $table->string('logo');
-            $table->string('schedule_integrated');
-            $table->string('schedule_subsequent');
+            $table->string('schedule_integrated')->nullable();
+            $table->string('schedule_subsequent')->nullable();
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
