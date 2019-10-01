@@ -27,6 +27,7 @@ class LinkController extends Controller
         $link->user_id = Auth::id();
         $link->title = $request->link['title'];
         $link->url = $request->link['url'];
+        $link->image = $request->link['image']->store('links');
         $link->save();
 
         return redirect(route('admin.links.show', compact('link')));
@@ -46,12 +47,13 @@ class LinkController extends Controller
     public function update(Request $request, Link $link)
     {
         $this->validation($request);
-        
+
         $link->user_id = Auth::id();
         $link->title = $request->link['title'];
         $link->url = $request->link['url'];
+        $link->link_image = isset($request->link['image']) ? $request->link['image']->store('links') : null;
         $link->update();
-        
+
         return redirect(route('admin.links.show', compact('link')));
     }
 
@@ -65,6 +67,7 @@ class LinkController extends Controller
         $request->validate([
            'link.title'       => 'required|min:4|max:50',
            'link.url'         => 'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+           'link.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
        ]);
     }
 }

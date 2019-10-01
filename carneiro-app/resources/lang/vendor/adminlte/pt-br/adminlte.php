@@ -49,6 +49,8 @@ return [
         'page'              =>  'Links',
         'title'             =>  'Título',
         'url'               =>  'URL',
+        'image'             =>  'Imagem',
+
     ],
     'institutional'                  =>  [
         'page'              =>  'Institutional',

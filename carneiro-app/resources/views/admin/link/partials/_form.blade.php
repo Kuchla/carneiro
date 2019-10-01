@@ -28,6 +28,17 @@
                 @endif
             </div>
         </div>
+        <div class="row">
+            <div class="form-group col-md-12 has-feedback {{ $errors->has('link.image') ? 'has-error' : '' }}">
+                <label for="link_image">{{ trans('adminlte::adminlte.link.image') }}</label>
+                <input id="link_image" type="file" class="file" data-preview-file-type="text" name="link[image]" value="{{ @$link->image ? @url('storage/'.@$link->image) : '' }}" />
+                @if ($errors->has('link.image'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('link.image') }}</strong>
+                </span>
+                @endif
+            </div>
+        </div>
 
         <div class="row">
             <div class="form-group col-md-12">

@@ -11,8 +11,8 @@
                         <h5 class="card-title">
                             {{ $link->title}}</h5>
                         <a href="{{ $link->url }}" target="_black">
-                            <i class="fa fa-link"></i>
-                        </a>
+                        <img src="{{ url('storage/'.$link->image) }}" style="max-width: 100px; max-height: 100px;" class="img-fluid" alt="">
+                    </a>                        </a>
                         <!-- <p class="card-text">Deleniti optio et nisi dolorem debitis. Aliquam nobis est temporibus sunt ab
                   inventore officiis aut voluptatibus.</p>
                 <a href="#" class="readmore">Read more </a> -->
