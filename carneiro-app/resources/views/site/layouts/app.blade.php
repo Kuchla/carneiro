@@ -39,13 +39,13 @@
             </div>
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
-                    <li><a href="#news">Notícias</a></li>
-                    <li><a href="#courses">Courses</a></li>
-                    <li><a href="#gallery">Galeria</strong></a></li>
-                    <li><a href="#team">Direção</a></li>
-                    <li><a href="#institutional">Institucional</strong></a></li>
-                    <li><a href="#why-us">Utilidades</strong></a></li>
-                    <li><a href="#contact">Localização</a></li>
+                    <li><a href="{{ route('site.home', ['pagec' => '#news']) }}">Notícias</a></li>
+                    <li><a href="{{ URL::route('site.home', ['page' => '#courses']) }}">Cursos</a></li>
+                    <li><a href="{{ route('site.home', '#gallery') }}">Galeria</strong></a></li>
+                    <li><a href="{{ route('site.home', '#team') }}">Direção</a></li>
+                    <li><a href="{{ route('site.home', '#institutional') }}">Institucional</strong></a></li>
+                    <li><a href="{{ route('site.home', '#why-us') }}">Utilidades</strong></a></li>
+                    <li><a href="{{ route('site.home', '#contact') }}">Localização</a></li>
                 </ul>
             </nav>
         </div>
