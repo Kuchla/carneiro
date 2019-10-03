@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Collaborator;
 use App\Enums\CollaboratorCategory;
+use App\Helpers\ImageConfig;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,10 +27,6 @@ class CollaboratorController extends Controller
     public function store(Request $request, Collaborator $collaborator)
     {
         $this->validation($request);
-        // dd(isset($request->collaborator['active'])? 1 : 0);
-
-        // $collaborator->active = (!isset($request->collaborator['active']))? 0 : 1;
-        // dd($collaborator->active);
 
         $collaborator->user_id = Auth::id();
         $collaborator->name = $request->collaborator['name'];
@@ -37,6 +34,8 @@ class CollaboratorController extends Controller
         $collaborator->category = $request->collaborator['category'];
         $collaborator->image = $request->collaborator['image']->store('collaborators');
         $collaborator->active = isset($request->collaborator['active']) ? 1 : 0;
+
+        ImageConfig::resizeCollaborator($collaborator->image);
         $collaborator->save();
 
         return redirect(route('admin.collaborators.show', compact('collaborator')));
@@ -64,8 +63,10 @@ class CollaboratorController extends Controller
         $collaborator->category = $request->collaborator['category'];
         $collaborator->collaborator_image = isset($request->collaborator['image']) ? $request->collaborator['image']->store('collaborators') : null;
         $collaborator->active = isset($request->collaborator['active']) ? 1 : 0;
+
+        ImageConfig::resizeCollaborator($collaborator->image);
         $collaborator->update();
-        
+
         return redirect(route('admin.collaborators.show', compact('collaborator')));
     }
 

@@ -6,64 +6,36 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\News;
 use App\Enums\Category;
+use App\Helpers\ImageConfig;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Support\Facades\Auth;
-use Intervention\Image\ImageManagerStatic as Image;
-
-
-
 
 class NewsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(News $news)
     {
         $news = News::all();
         return view('admin.news.index', compact('news'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categories = Category::toSelectArray();
         return view('admin.news.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request, News $news)
     {
 
         $this->validation($request);
-
-        // $thumbnailpath = public_path('storage/profile_images/thumbnail/'.$filenametostore);
-        // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
-        //     $constraint->aspectRatio();
-        // });
-        // $img->save($thumbnailpath);
 
         $news->user_id = Auth::id();
         $news->title = $request->news['title'];
         $news->category = $request->news['category'];
         $news->description = $request->news['description'];
         $news->image = $request->news['image']->store('logos');
-        $resize = $news->image;
-        $img = Image::make($resize)->resize(150, 150, function($constraint) {
-            $constraint->aspectRatio();
-        });
-        $img->save($resize);
+
+        ImageConfig::resize($news->image);
         $news->save();
 
         return redirect(route('admin.news.show', compact('news')));
@@ -90,6 +62,8 @@ class NewsController extends Controller
         $news->category = $request->news['category'];
         $news->description = $request->news['description'];
         $news->news_image = isset($request->news['image']) ? $request->news['image']->store('news') : null;
+
+        ImageConfig::resize($news->image);
         $news->update();
 
         return redirect(route('admin.news.show', compact('news')));
@@ -103,10 +77,10 @@ class NewsController extends Controller
     private function validation(Request $request)
     {
         $request->validate([
-           'news.title'        => 'required|min:4|max:50',
-           'news.category'    => 'required|not_in:Selecione',
-           'news.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
-           'news.description' => 'required|min:50',
-       ]);
+            'news.title'       => 'required|min:4|max:50',
+            'news.category'    => 'required|not_in:Selecione',
+            'news.image'       => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
+            'news.description' => 'required|min:50',
+        ]);
     }
 }

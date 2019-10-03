@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Helpers\ImageConfig;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,8 @@ class LinkController extends Controller
         $link->title = $request->link['title'];
         $link->url = $request->link['url'];
         $link->image = $request->link['image']->store('links');
+
+        ImageConfig::resizeLinks($link->image);
         $link->save();
 
         return redirect(route('admin.links.show', compact('link')));
@@ -52,6 +55,8 @@ class LinkController extends Controller
         $link->title = $request->link['title'];
         $link->url = $request->link['url'];
         $link->link_image = isset($request->link['image']) ? $request->link['image']->store('links') : null;
+
+        ImageConfig::resizeLinks($link->image);
         $link->update();
 
         return redirect(route('admin.links.show', compact('link')));

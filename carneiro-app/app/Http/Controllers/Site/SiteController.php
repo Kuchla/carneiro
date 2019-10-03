@@ -66,7 +66,7 @@ class SiteController extends Controller
     }
 
     public function newsIndex(){
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->paginate(6);
         return view('site.news.index', compact('news'));
     }
 }
