@@ -39,13 +39,13 @@
             </div>
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
-                    <li><a href="{{ route('site.home', ['pagec' => '#news']) }}">Notícias</a></li>
-                    <li><a href="{{ URL::route('site.home', ['page' => '#courses']) }}">Cursos</a></li>
-                    <li><a href="{{ route('site.home', '#gallery') }}">Galeria</strong></a></li>
-                    <li><a href="{{ route('site.home', '#team') }}">Direção</a></li>
-                    <li><a href="{{ route('site.home', '#institutional') }}">Institucional</strong></a></li>
-                    <li><a href="{{ route('site.home', '#why-us') }}">Utilidades</strong></a></li>
-                    <li><a href="{{ route('site.home', '#contact') }}">Localização</a></li>
+                    <li><a href="{{ url('/#news') }}">Notícias</a></li>
+                    <li><a href="{{ url('/#courses') }}">Cursos</a></li>
+                    <li><a href="{{ url('/#gallery') }}">Galeria</strong></a></li>
+                    <li><a href="{{ url('/#team') }}">Direção</a></li>
+                    <li><a href="{{ url('/#institutional') }}">Institucional</strong></a></li>
+                    <li><a href="{{ url('/#why-us') }}">Utilidades</strong></a></li>
+                    <li><a href="{{ url('/#contact') }}">Localização</a></li>
                 </ul>
             </nav>
         </div>
@@ -80,4 +80,5 @@
     <script src="{{asset('site-assets/js/gallery.js')}}"></script>
     <script src="{{asset('site-assets/js/main.js')}}"></script>
 </body>
+
 </html>

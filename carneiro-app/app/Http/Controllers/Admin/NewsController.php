@@ -8,6 +8,8 @@ use App\News;
 use App\Enums\Category;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Support\Facades\Auth;
+use Intervention\Image\ImageManagerStatic as Image;
+
 
 
 
@@ -46,11 +48,22 @@ class NewsController extends Controller
 
         $this->validation($request);
 
+        // $thumbnailpath = public_path('storage/profile_images/thumbnail/'.$filenametostore);
+        // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+        //     $constraint->aspectRatio();
+        // });
+        // $img->save($thumbnailpath);
+
         $news->user_id = Auth::id();
         $news->title = $request->news['title'];
         $news->category = $request->news['category'];
         $news->description = $request->news['description'];
         $news->image = $request->news['image']->store('logos');
+        $resize = $news->image;
+        $img = Image::make($resize)->resize(150, 150, function($constraint) {
+            $constraint->aspectRatio();
+        });
+        $img->save($resize);
         $news->save();
 
         return redirect(route('admin.news.show', compact('news')));
@@ -78,7 +91,7 @@ class NewsController extends Controller
         $news->description = $request->news['description'];
         $news->news_image = isset($request->news['image']) ? $request->news['image']->store('news') : null;
         $news->update();
-        
+
         return redirect(route('admin.news.show', compact('news')));
     }
 

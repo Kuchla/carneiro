@@ -9,6 +9,7 @@
         <header class="section-header">
             <h3>{{ $course->name}}</h3>
         </header>
+        <br>
         <div class="row">
             <div class="col-lg-2 wow fadeInUp">
                 <img src="{{ url('storage/'.$course->logo) }}" class="img-fluid" alt="image">
