@@ -15,7 +15,5 @@
 
 <form method="post" action="{{ route('admin.collaborators.update', ['collaborator' => $collaborator->id]) }}"  enctype="multipart/form-data">
     @method('PATCH')
-
     @include('admin.collaborator.partials._form')
-
 @stop

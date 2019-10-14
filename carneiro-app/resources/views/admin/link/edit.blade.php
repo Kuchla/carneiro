@@ -16,7 +16,5 @@
 <form method="post" action="{{ route('admin.links.update', ['link' => $link->id]) }}"  enctype="multipart/form-data">
     @method('PATCH')
     @csrf
-
     @include('admin.link.partials._form')
-
 @stop

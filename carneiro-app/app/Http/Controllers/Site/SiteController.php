@@ -20,7 +20,7 @@ class SiteController extends Controller
         $news = News::all();
         $links = Link::all();
         $institutional = Institutional::first();
-        $galleries = Gallery::paginate(6);
+        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(2);
         $collaborators = Collaborator::where('category', 'Direction')->where('active', 1)->get();
         $categories = Gallery::distinct()->pluck('category');
 
@@ -68,5 +68,13 @@ class SiteController extends Controller
     public function newsIndex(){
         $news = News::orderBy('created_at', 'desc')->paginate(6);
         return view('site.news.index', compact('news'));
+    }
+
+
+    public function galleriesIndex(){
+        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(3);
+        $categories = Gallery::distinct()->pluck('category');
+        $albuns = Gallery::distinct()->pluck('referent');
+        return view('site.gallery.index', compact('galleries', 'categories', 'albuns'));
     }
 }

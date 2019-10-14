@@ -6,7 +6,7 @@
     <div class="box-body">
 
         <div class="row">
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('course.name') ? 'has-error' : '' }}">
+            <div class="form-group col-md-12 has-feedback {{ $errors->has('course.name') ? 'has-error' : '' }}">
                 <label for="course_name">{{ trans('adminlte::adminlte.course.name') }}</label>
                 <input type="text" name="course[name]" class="form-control" id="course_name" placeholder="{{ trans('adminlte::adminlte.course.name') }}" value="{{ old('course.name', @$course->name ) }}">
                 @if ($errors->has('course.name'))
@@ -15,22 +15,12 @@
                 </span>
                 @endif
             </div>
-
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('course.duration') ? 'has-error' : '' }}">
-                <label for="course_duration">{{ trans('adminlte::adminlte.course.duration') }}</label>
-                <input type="text" name="course[duration]" class="form-control" id="course_duration" placeholder="{{ trans('adminlte::adminlte.course.duration') }}" value="{{ old('course.duration', @$course->duration ) }}">
-                @if ($errors->has('course.duration'))
-                <span class="help-block">
-                    <strong>{{ $errors->first('course.duration') }}</strong>
-                </span>
-                @endif
-            </div>
         </div>
 
         <div class="row">
             <div class="form-group col-md-12 has-feedback {{ $errors->has('course.logo') ? 'has-error' : '' }}">
                 <label for="course_logo">{{ trans('adminlte::adminlte.course.logo') }}</label>
-                <input id="course_logo" type="file" class="file" data-preview-file-type="text" name="course[logo]" value="{{ @$course->logo ? @url('storage/'.@$course->logo) : '' }}" />
+                <input id="course_logo" type="file" class="file image-upload" data-preview-file-type="text" name="course[logo]" value="{{ @$course->logo ? @url('storage/'.@$course->logo) : '' }}" />
                 @if ($errors->has('course.logo'))
                 <span class="help-block">
                     <strong>{{ $errors->first('course.logo') }}</strong>

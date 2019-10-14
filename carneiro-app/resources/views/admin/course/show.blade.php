@@ -20,8 +20,6 @@
             <img class="img" src="{{ url('storage/'.@$course->logo) }}" alt="logo">
         </div>
         <h3 class="widget-user-username"><strong>Nome do Curso: </strong> {{$course->name}}</h3>
-        <h5 class="widget-user-desc"><strong>Duração do Curso: </strong> {{$course->duration}}
-        </h5>
         <h5 class="widget-user-desc">
             @if($course->schedule_subsequent)
             <a target="_blank" class="btn btn-primary btn-sm" href="{{ url('storage/'.$course->schedule_subsequent) }}">
@@ -34,10 +32,8 @@
                 <i class="fa fa-download"></i> Ementa curso integrado </a>
             @endif
         </h5>
-        <ul class="nav nav-stacked">
-            <li><strong>Descrição: </strong> {!! $course->description !!}
-            </li>
-        </ul>
+        <strong>Descrição: </strong>
+        {!! $course->description !!}
     </div>
 </div>
 <a class="btn btn-warning" href="{{ route('admin.courses.edit', ['id' => $course->id]) }}">

@@ -1,4 +1,4 @@
-$('#course_logo').fileinput({
+$('.image-upload').fileinput({
     theme: 'fas',
     showUpload: false,
     previewFileType: 'any',
@@ -6,11 +6,11 @@ $('#course_logo').fileinput({
     browseOnZoneClick: true,
     showRemove: false,
     initialPreviewAsData: true,
-    initialPreview: $('#course_logo')[0].defaultValue,
+    initialPreview: $('.image-upload')[0].defaultValue,
     fileActionSettings: {
         showDrag: false
     },
-    showRemove: false,
+    showRemove: true,
     showClose: false,
     fileActionSettings: {
         showRemove: false
@@ -33,7 +33,7 @@ $('#course_schedule_integrated').fileinput({
     fileActionSettings: {
         showDrag: false
     },
-    showRemove: false,
+    showRemove: true,
     showClose: false,
     fileActionSettings: {
         showRemove: false
@@ -56,7 +56,7 @@ $('#course_schedule_subsequent').fileinput({
     fileActionSettings: {
         showDrag: false
     },
-    showRemove: false,
+    showRemove: true,
     showClose: false,
     fileActionSettings: {
         showRemove: false
@@ -77,7 +77,7 @@ $('#link_image').fileinput({
     fileActionSettings: {
         showDrag: false
     },
-    showRemove: false,
+    showRemove: true,
     showClose: false,
     fileActionSettings: {
         showRemove: false

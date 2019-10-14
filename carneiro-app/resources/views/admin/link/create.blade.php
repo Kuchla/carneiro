@@ -15,8 +15,5 @@
 
 <form  method="POST" action="{{ route('admin.links.store') }}" role="form" enctype="multipart/form-data">
     @csrf
-
-
-@include('admin.link.partials._form')
-
+    @include('admin.link.partials._form')
 @stop

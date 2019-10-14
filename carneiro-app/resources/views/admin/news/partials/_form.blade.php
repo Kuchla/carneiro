@@ -37,16 +37,10 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('news.image') ? 'has-error' : '' }}">
+            <div class="form-group col-md-12 has-feedback {{ $errors->has('news.image') ? 'has-error' : '' }}">
                 <label for="news_image">{{ trans('adminlte::adminlte.news.image') }}</label>
-                @isset($news->image)
-                <p>
-                    <img src="{{ url('storage/'.@$news->image) }}" alt="" style="max-width: 200px;">
-                </p>
-                @endisset
-                <input type="file" name="news[image]" class="custom-file-input" id="news_image"
-                    aria-describedby="image">
-                <label class="custom-file-label" for="image">Arquivos: JPG e PNG.</label>
+                <input id="news_image" type="file" class="file image-upload" data-preview-file-type="text" name="news[image]"
+                    value="{{ @$news->image ? @url('storage/'.@$news->image) : '' }}" />
                 @if ($errors->has('news.image'))
                 <span class="help-block">
                     <strong>{{ $errors->first('news.image') }}</strong>
@@ -58,7 +52,7 @@
         <div class="row">
             <div class="form-group col-md-12 has-feedback {{ $errors->has('news.description') ? 'has-error' : '' }}">
                 <label for="news_description">{{ trans('adminlte::adminlte.news.description') }}</label>
-                <textarea id="news_description" name="news[description]">
+                <textarea id="news_description" name="news[description]" class="summernote">
                     {{ old('news.description', @$news->description) }}
                 </textarea>
                 @if ($errors->has('news.description'))

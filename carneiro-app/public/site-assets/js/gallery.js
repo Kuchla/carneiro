@@ -1,8 +1,30 @@
+$(document).ready(function() {
+    $(document).on("click", "#show-gallery-flters li", function(event) {
+        event.preventDefault();
+        var category = $(this).text();
+        fetch_data(category);
+    });
+
+    function fetch_data(category) {
+        $.ajax({
+            type: "GET",
+            url: "/gallery/" + category,
+            success: function(data) {
+                $("#gallery").html(data);
+            }
+        });
+    }
+});
+
+
+
+
 // var x = clickfunc();
 // console.log(x);
 
 // function clickfunc() {
 //     var t = $("#gnt").text();
+
 //     return t;
 // }
 // $(document).ready(function() {
@@ -27,6 +49,7 @@
 
 // $(document).ready(function() {
 //     $(document).on("click", "#gallery-flters li", function(event) {
+//         alert('ssda');
 //         event.preventDefault();
 //         var category = $(this).text();
 //         fetch_data(category);

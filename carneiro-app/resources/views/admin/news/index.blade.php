@@ -38,7 +38,6 @@
                                 <tr>
                                     <td>{{ $news->id }}</td>
                                     <td> {{ $news->title }}</td>
-                                    <td> {{ $news->category }}</td>
                                     <td>
                                         <a class="btn btn-success"
                                             href="{{ route('admin.news.show', ['id' => $news->id]) }}">
@@ -53,7 +52,7 @@
                                             style="display: inline;">
                                             @csrf
                                             @method('DELETE')
-                                            <button type="submit" class="btn btn-danger"> 
+                                            <button type="submit" class="btn btn-danger">
                                                 <i class="fa fa-trash"> {{ trans('adminlte::adminlte.btn.delete') }}</i>
                                             </button>
                                         </form>
@@ -63,7 +62,6 @@
                             </tbody>
                         </table>
                         @endif
-                        <hr>
                     </div>
                 </div>
             </div>

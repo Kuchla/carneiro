@@ -8,7 +8,7 @@
             <div class="">
                 <div class="client-logo">
                     <a href="{{ route('site.courses.show', $course->id) }}">
-                        <img src="{{ url('storage/'.$course->logo) }}" class="img-fluid" alt="">
+                        <img src="{{ url('storage/'.$course->logo) }}" class="img-fluid" alt="course-logo">
                     </a>
                 </div>
             </div>

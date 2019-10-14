@@ -61,7 +61,6 @@
                             </tbody>
                         </table>
                         @endif
-                        <hr>
                     </div>
                 </div>
             </div>

@@ -14,7 +14,5 @@
 @section('content')
 
 <form method="POST" action="{{ route('admin.collaborators.store') }}" role="form" enctype="multipart/form-data">
-
     @include('admin.collaborator.partials._form')
-
 @stop

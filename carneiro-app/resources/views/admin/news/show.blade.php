@@ -22,7 +22,7 @@
     </div>
     <!-- /.widget-user-image -->
     <h3 class="widget-user-username"><strong>Título: </strong> {{$news->title}}</h3>
-    <h5 class="widget-user-desc"><strong>Categoria: </strong> {{$news->category}}
+    <h5 class="widget-user-desc"><strong>Categoria: </strong> {{ translate_category($news->category) }}
     </h5>
   </div>
   <div class="box-footer no-padding">

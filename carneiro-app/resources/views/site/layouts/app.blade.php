@@ -33,9 +33,11 @@
         <div class="container">
             <div class="logo float-left">
                 <!-- image logo -->
+                <img src="{{asset('site-assets/img/carneiro-logo.png')}}" alt="carneiro-logo" class="img-fluid">
+            </div>
+            <div class="logo float-left">
                 <h1 class="text-light"><a href="#header" class="scrollto"><span><a href="{{ route('site.home') }}">Colégio Estadual</a></span></h1>
                 <h5><strong>Francisco Carneiro Martins</strong></h5>
-                <!-- <a href="#intro" class="scrollto"><img src="img/header.png" alt="" class="img-fluid">Colégio</strong></a> -->
             </div>
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
@@ -57,7 +59,6 @@
                 &copy; Copyright Colégio Estadual Francisco Carneiro Martins</strong>. All Rights Reserved
             </div>
             <div class="credits">
-                Designed by <a href="#">Josni Kuchla</a>
             </div>
         </div>
     </footer>

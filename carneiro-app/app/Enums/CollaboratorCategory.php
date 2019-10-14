@@ -9,5 +9,5 @@ final class CollaboratorCategory extends Enum implements LocalizedEnum
 {
     const DIRECTION = 'direction';
     const TEACHER= 'teacher';
-    const ADMINISTRATIVE = 'administrativo';
+    const ADMINISTRATIVE = 'administrative';
 }

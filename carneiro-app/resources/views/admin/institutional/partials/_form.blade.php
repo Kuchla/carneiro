@@ -18,11 +18,10 @@
                 @endif
             </div>
         </div>
-
         <div class="row">
             <div class="form-group col-md-12 has-feedback {{ $errors->has('institutional.about') ? 'has-error' : '' }}">
                 <label for="institutional_about">{{ trans('adminlte::adminlte.institutional.about') }}</label>
-                <textarea id="institutional_about" name="institutional[about]">
+                <textarea id="institutional_about" name="institutional[about]" class="summernote">
                     {{ old('institutional.about', @$institutional->about) }}
                 </textarea>
                 @if ($errors->has('institutional.about'))
@@ -32,7 +31,6 @@
                 @endif
             </div>
         </div>
-
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="box-footer">
@@ -48,12 +46,3 @@
     </div>
     </form>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $("#institutional_about").summernote({
-            lang: "pt-BR",
-        });
-    });
-
-</script>

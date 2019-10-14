@@ -13,7 +13,7 @@ class Course extends Model
         'name', 'duration', 'logo', 'schedule_integrated', 'schedule_subsequent', 'description', 'user_id'
     ];
 
-    public function setLogoCourseAttribute($value)
+    public function setCourseLogoAttribute($value)
     {
         $this->attributes['logo'] = is_null($value) ? $this->logo :  $value;
     }

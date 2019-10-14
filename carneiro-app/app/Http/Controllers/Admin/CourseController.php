@@ -22,18 +22,20 @@ class CourseController extends Controller
 
     public function store(Request $request, Course $course)
     {
-        // dd(isset($request->course['schedule_subsequent']));
         $this->validation($request);
 
         $course->user_id = Auth::id();
         $course->name = $request->course['name'];
-        $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
         $course->logo = $request->course['logo']->store('logos');
-        isset($request->course['schedule_subsequent']) ? ($course->schedule_subsequent =  $request->course['schedule_subsequent']->store('schedules')) : null;
-        isset($request->course['schedule_integrated']) ? ($course->schedule_integrated =  $request->course['schedule_integrated']->store('schedules')) : null;
-        $course->save();
+        isset($request->course['schedule_subsequent'])
+            ? ($course->schedule_subsequent =  $request->course['schedule_subsequent']->store('schedules'))
+            : 0;
+        isset($request->course['schedule_integrated'])
+            ? ($course->schedule_integrated =  $request->course['schedule_integrated']->store('schedules'))
+            : 0;
 
+        $course->save();
         return redirect(route('admin.courses.show', compact('course')));
     }
 
@@ -54,13 +56,18 @@ class CourseController extends Controller
 
         $course->user_id = Auth::id();
         $course->name = $request->course['name'];
-        $course->duration = $request->course['duration'];
         $course->description = $request->course['description'];
-        $course->logo_course = isset($request->course['logo']) ? $request->course['logo']->store('logos') : null;
-        $course->integrated_schedule = isset($request->course['schedule_integrated']) ? $request->course['schedule_integrated']->store('schedules') : null;
-        $course->subsequent_schedule = isset($request->course['schedule_subsequent']) ? $request->course['schedule_subsequent']->store('schedules') : null;
-        $course->update();
+        $course->course_logo = isset($request->course['logo'])
+            ? $request->course['logo']->store('courses')
+            : null;
+        $course->integrated_schedule = isset($request->course['schedule_integrated'])
+            ? $request->course['schedule_integrated']->store('schedules')
+            : null;
+        $course->subsequent_schedule = isset($request->course['schedule_subsequent'])
+            ? $request->course['schedule_subsequent']->store('schedules')
+            : null;
 
+        $course->update();
         return redirect(route('admin.courses.show', compact('course')));
     }
 
@@ -72,12 +79,11 @@ class CourseController extends Controller
     private function validation(Request $request)
     {
         $request->validate([
-           'course.name'        => 'required|min:4|max:50',
-           'course.duration'    => 'required|min:4|max:50',
-           'course.logo'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
-           'course.schedule_integrated'   => 'nullable',
-           'course.schedule_subsequent'   => 'nullable',
-           'course.description' => 'required|min:4',
-       ]);
+            'course.name'                => 'required|min:4|max:50',
+            'course.logo'                => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
+            'course.schedule_integrated' => 'nullable',
+            'course.schedule_subsequent' => 'nullable',
+            'course.description'         => 'required|min:10',
+        ]);
     }
 }

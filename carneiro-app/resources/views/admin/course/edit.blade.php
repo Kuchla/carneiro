@@ -15,7 +15,5 @@
 
 <form method="post" action="{{ route('admin.courses.update', ['course' => $course->id]) }}" enctype="multipart/form-data">
     @method('PATCH')
-
     @include('admin.course.partials._form')
-
-    @stop
+@stop

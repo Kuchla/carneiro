@@ -4,7 +4,7 @@
 
 @section('content')
 
-<section id="about">
+<section id="page-default">
     <div class="container">
         <header class="section-header">
             <h3>{{ $course->name}}</h3>
@@ -15,7 +15,6 @@
                 <img src="{{ url('storage/'.$course->logo) }}" class="img-fluid" alt="image">
             </div>
             <div class="col-lg-10 wow fadeInUp pt-5 pt-lg-0">
-                <h5>Duração: {{ $course->duration }} </h5>
                 <h5 class="widget-user-desc">
                     @if($course->schedule_subsequent)
                     <a target="_blank" class="btn btn-primary btn-sm mb-1" href="{{ url('storage/'.$course->schedule_subsequent) }}">

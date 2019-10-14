@@ -23,6 +23,8 @@ class LinkController extends Controller
 
     public function store(Request $request, Link $link)
     {
+        // dd($request->input('link.image'));
+
         $this->validation($request);
 
         $link->user_id = Auth::id();

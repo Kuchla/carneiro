@@ -38,16 +38,9 @@
         </div>
 
         <div class="row">
-            <div class="form-group col-md-6 has-feedback {{ $errors->has('gallery.image') ? 'has-error' : '' }}">
+            <div class="form-group col-md-12 has-feedback {{ $errors->has('gallery.image') ? 'has-error' : '' }}">
                 <label for="gallery_image">{{ trans('adminlte::adminlte.gallery.image') }}</label>
-                @isset($gallery->image)
-                <p>
-                    <img src="{{ url('storage/'.@$gallery->image) }}" alt="" style="max-width: 200px;">
-                </p>
-                @endisset
-                <input type="file" name="gallery[image]" class="custom-file-input" id="gallery_image"
-                    aria-describedby="logo" value="fdsf">
-                <label class="custom-file-label" for="logo">Arquivos: JPG e PNG.</label>
+                <input type="file" class="file image-upload" multiple="multiple" data-preview-file-type="text" name="gallery[image][]" value="{{ @$gallery->image ? @url('storage/'.@$gallery->image) : '' }}" />
                 @if ($errors->has('gallery.image'))
                 <span class="help-block">
                     <strong>{{ $errors->first('gallery.image') }}</strong>

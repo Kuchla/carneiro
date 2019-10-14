@@ -38,8 +38,8 @@ Route::get('/courses/{id}', 'Site\SiteController@course')->name('site.courses.sh
 Route::get('/news/{id}', 'Site\SiteController@news')->name('site.news.show');
 Route::get('/news', 'Site\SiteController@newsIndex')->name('site.news');
 
-
-
+Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.gallery');
+// Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.galleries');
 
 Auth::routes();
 

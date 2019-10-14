@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Gallery;
 use App\Enums\Category;
+use App\Image;
 use BenSampo\Enum\Rules\EnumValue;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,15 +27,22 @@ class GalleryController extends Controller
 
     public function store(Request $request, Gallery $gallery)
     {
-        $this->validation($request);
-
+        // $this->validation($request);
+        //   dd($request->gallery['image'] );
         $gallery->user_id = Auth::id();
-        $gallery->description = $request->gallery['description'];
-        $gallery->image = $request->gallery['image']->store('gallery');
+        $gallery->referent = $request->gallery['description'];
         $gallery->category = $request->gallery['category'];
         $gallery->save();
-        
-        $gallery= $gallery->category;
+
+        foreach ($request->gallery['image'] as $image) {
+            $filename = $image->store('galleries');
+            $img = Image::create([
+                'gallery_id' => $gallery->id,
+                'name' => $filename
+            ]);
+        }
+
+        $gallery = $gallery->category;
 
         return redirect(route('admin.galleries.show', compact('gallery')));
     }
@@ -45,9 +53,10 @@ class GalleryController extends Controller
         return view('admin.gallery.edit', compact('gallery', 'categories'));
     }
 
-    public function destroy(Gallery $gallery)
+    public function destroy($image)
     {
-        $gallery->delete();
+        $image = Image::where('id', $image)->get();
+        $image->first()->delete();
         return redirect()->back();
     }
 
@@ -62,22 +71,22 @@ class GalleryController extends Controller
         $gallery->update();
 
         $gallery = $gallery->category;
-        
+
         return redirect(route('admin.galleries.show', compact('gallery')));
     }
 
     public function show($category)
     {
-        $galleries = Gallery::get()->where('category', $category);
+        $galleries = Gallery::where('category', $category)->get()->groupBy('referent');
         return view('admin.gallery.show', compact('galleries'));
     }
 
     private function validation(Request $request)
     {
         $request->validate([
-           'gallery.description'        => 'required|min:4|max:40',
-           'gallery.category'    => 'required',
-           'gallery.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
-       ]);
+            'gallery.description'        => 'required|min:4|max:40',
+            'gallery.category'    => 'required',
+            'gallery.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
+        ]);
     }
 }
