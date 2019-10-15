@@ -26,7 +26,6 @@ class NewsController extends Controller
 
     public function store(Request $request, News $news)
     {
-
         $this->validation($request);
 
         $news->user_id = Auth::id();

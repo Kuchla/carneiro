@@ -3,7 +3,7 @@
 @section('title', 'Index')
 
 @section('content')
-<section id="about">
+<section id="page-default">
     <article>
         <div class="container">
             <header class="section-header">

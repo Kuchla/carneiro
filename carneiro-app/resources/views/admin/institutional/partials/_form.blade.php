@@ -4,7 +4,6 @@
         <h3 class="box-title">Formulário</h3>
     </div>
     <div class="box-body">
-
         <div class="row">
             <div class="form-group col-md-12 has-feedback {{ $errors->has('institutional.title') ? 'has-error' : '' }}">
                 <label for="institutional_title">{{ trans('adminlte::adminlte.institutional.title') }}</label>

@@ -85,7 +85,7 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -149,7 +149,7 @@ return [
             'url'         => 'admin/institutionals',
             'icon'        => 'institution',
         ],
-        
+
         [
             'text' => 'Usuários',
             'url'  => 'admin/users',

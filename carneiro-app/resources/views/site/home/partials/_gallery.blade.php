@@ -41,6 +41,6 @@
         </div>
         {{ $galleries->links() }}
     </div>
-    <center><strong><a href="{{ route('site.gallery')}}">Ver todas as notícias >></a></strong>
+    <center><strong><a href="{{ route('site.gallery')}}">Ver todas as fotos >></a></strong>
     </center>
 </section>

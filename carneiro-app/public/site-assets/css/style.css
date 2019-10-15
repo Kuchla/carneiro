@@ -1270,9 +1270,9 @@ h6 {
 
 #institutional {
   padding-top: 23px;
-  padding-bottom: 20px;
+  padding-bottom: 60px;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  background: #fff;
+  background: #00428a;
 }
 
 #institutional .courses-wrap {
@@ -1280,6 +1280,14 @@ h6 {
   margin-bottom: 30px;
   justify-content: center;
 }
+
+#institutional .section-header h3 {
+    font-size: 36px;
+    color: rgb(219, 209, 209);
+    text-align: center;
+    font-weight: 500;
+    position: relative;
+  }
 
 /* Team Section
 --------------------------------*/
@@ -1439,12 +1447,12 @@ h6 {
   padding: 60px 0;
   box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
   /* background: #dee2e657; */
-  color: #fff;
+  color:rgba(245, 245, 242, 0.884);
   padding-bottom: 400px;
 }
 
 #institution .card-color {
-    background-color: ecf5ff;
+    background-color: #ecf5ff;
 }
 
 #institution .institution-wrap {

@@ -13,7 +13,8 @@
     <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700"
+        rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
     <link href="{{asset('site-assets/lib/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -31,14 +32,17 @@
 <body>
     <header id="header" class="fixed-top">
         <div class="container">
-            <div class="logo float-left">
-                <!-- image logo -->
-                <img src="{{asset('site-assets/img/carneiro-logo.png')}}" alt="carneiro-logo" class="img-fluid">
-            </div>
-            <div class="logo float-left">
-                <h1 class="text-light"><a href="#header" class="scrollto"><span><a href="{{ route('site.home') }}">Colégio Estadual</a></span></h1>
-                <h5><strong>Francisco Carneiro Martins</strong></h5>
-            </div>
+            <a href="{{ route('site.home') }}">
+                <div class="logo float-left">
+                    <!-- image logo -->
+
+                    <img src="{{asset('site-assets/img/carneiro-logo.png')}}" alt="carneiro-logo" class="img-fluid">
+                </div>
+                <div class="logo float-left">
+                    <h1 class="text-light"><a href="#header" class="scrollto"><span>Colégio Estadual</span></h1>
+                    <h5><strong>Francisco Carneiro Martins</strong></h5>
+                </div>
+            </a>
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
                     <li><a href="{{ url('/#news') }}">Notícias</a></li>

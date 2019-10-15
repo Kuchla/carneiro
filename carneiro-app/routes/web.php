@@ -27,6 +27,8 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::resource('institutionals', 'InstitutionalController')->names('admin.institutionals');
     Route::resource('collaborators', 'CollaboratorController')->names('admin.collaborators');
     Route::resource('galleries', 'GalleryController')->names('admin.galleries');
+    Route::resource('users', 'UserController')->names('admin.users');
+
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site.home');
