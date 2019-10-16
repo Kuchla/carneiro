@@ -28,16 +28,15 @@
                 @endif
             </div>
             <div class="form-group col-md-4 has-feedback {{ $errors->has('user.password') ? 'has-error' : '' }}">
-                    <label for="user_password">{{ trans('adminlte::adminlte.user.password') }}</label>
-                    <input type="password" name="user[password]" class="form-control" id="user_password"
-                        placeholder="{{ trans('adminlte::adminlte.user.password') }}"
-                        value="{{ old('user.password', @$user->password ) }}">
-                    @if ($errors->has('user.password'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('user.password') }}</strong>
-                    </span>
-                    @endif
-                </div>
+                <label for="user_password">{{ trans('adminlte::adminlte.user.password') }}</label>
+                <input type="text" name="user[password]" class="form-control" id="user_password"
+                    placeholder="{{ trans('adminlte::adminlte.user.password') }}" value="{{ old('user.password')}}">
+                @if ($errors->has('user.password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('user.password') }}</strong>
+                </span>
+                @endif
+            </div>
         </div>
 
         <div class="row">
@@ -55,4 +54,3 @@
     </div>
     </form>
 </div>
-

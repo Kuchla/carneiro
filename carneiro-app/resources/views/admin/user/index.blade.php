@@ -1,10 +1,10 @@
 @extends('adminlte::page')
 
-@section('title', trans('adminlte::adminlte.link.page'))
+@section('title', trans('adminlte::adminlte.user.page'))
 
 @section('content_header')
 <h1>
-    {{ trans('adminlte::adminlte.link.page') }}
+    {{ trans('adminlte::adminlte.user.page') }}
     <small>
         {{ trans('adminlte::adminlte.breadcrumbs.index') }}
     </small>
@@ -28,7 +28,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">{{ trans('adminlte::adminlte.id') }}</th>
-                                    <th scope="col">{{ trans('adminlte::adminlte.link.title') }}</th>
+                                    <th scope="col">{{ trans('adminlte::adminlte.user.name') }}</th>
                                     <th scope="col">{{ trans('adminlte::adminlte.admin') }}</th>
                                 </tr>
                             </thead>
@@ -47,14 +47,14 @@
                                             <i class="fa fa-edit"> {{ trans('adminlte::adminlte.btn.edit') }}</i>
                                         </a>
 
-                                        <form action="{{ route('admin.users.destroy', $user) }}" method="post"
+                                        {{-- <form action="{{ route('admin.users.destroy', $user) }}" method="post"
                                             style="display: inline;">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-danger">
                                                 <i class="fa fa-trash"> {{ trans('adminlte::adminlte.btn.delete') }}</i>
                                             </button>
-                                        </form>
+                                        </form> --}}
                                     </td>
                                 </tr>
                                 @endforeach

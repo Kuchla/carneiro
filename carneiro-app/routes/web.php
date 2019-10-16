@@ -43,7 +43,7 @@ Route::get('/news', 'Site\SiteController@newsIndex')->name('site.news');
 Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.gallery');
 // Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.galleries');
 
-Auth::routes();
+Auth::routes([]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

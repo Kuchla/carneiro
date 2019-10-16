@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
+        $logged = User::find(Auth::id());
+        if(!$logged->is_admin){
+            return redirect(route('admin.users.edit', compact('logged')));
+        }
         $users = User::all();
         return view('admin.user.index', compact('users'));
     }
@@ -31,7 +36,7 @@ class UserController extends Controller
 
         $user->name = $request->user['name'];
         $user->email = $request->user['email'];
-        $user->password = Hash::make($request->user['password']);
+        $user->user_password = isset($request->user['password']) ? Hash::make($request->user['password']) : null;
 
         $user->update();
         return redirect(route('admin.users.show', compact('user')));
@@ -58,8 +63,8 @@ class UserController extends Controller
     {
         $request->validate([
             'user.name'     => 'required|min:4|max:50',
-            'user.email'    => 'required',
-            'user.password' => 'required|min:8',
+            'user.email'    =>  $request->isMethod('post') ? 'required|email|unique:users,email' : 'required|email|unique:users,email,'.Auth::id(),
+            'user.password' =>  $request->isMethod('post') ? 'required|min:8' : 'nullable',
         ]);
     }
 }

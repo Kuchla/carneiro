@@ -38,16 +38,22 @@ return [
     ],
     'collaborator'                  =>  [
         'page'              => 'Colaboradores',
-        'name'             =>  'Nome',
+        'name'              =>  'Nome',
         'category'          =>  'Categoria',
         'image'             => 'Imagem',
-        'role'       => 'Cargo',
-        'active'       => 'Status',
+        'role'              => 'Cargo',
+        'active'            => 'Status',
 
+    ],
+    'user'              =>  [
+        'page'              => 'Usuários',
+        'name'              => 'Nome',
+        'email'             => 'E-Mail',
+        'password'          => 'Senha',
     ],
     'link'                  =>  [
         'page'              =>  'Links',
-        'title'             =>  'Título',
+        'name'              =>  'Nome',
         'url'               =>  'URL',
         'image'             =>  'Imagem',
 

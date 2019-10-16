@@ -1,11 +1,11 @@
 @extends('adminlte::page')
 
-@section('title', trans('adminlte::adminlte.link.page'))
+@section('title', trans('adminlte::adminlte.user.page'))
 
 @section('content_header')
 <h1>
     <a href="{{ route('admin.users.index') }}">
-        {{ trans('adminlte::adminlte.link.page') }}
+        {{ trans('adminlte::adminlte.user.page') }}
     </a>
     <small>{{ trans('adminlte::adminlte.breadcrumbs.edit') }}</small>
 </h1>

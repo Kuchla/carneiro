@@ -5,7 +5,7 @@
 @section('content_header')
 <h1>
     Dashboard
-    <small>Index</small>
+    <small>Índice</small>
 </h1>
 
 @stop
@@ -16,14 +16,14 @@
         <!-- small box -->
         <div class="small-box bg-aqua">
             <div class="inner">
-                <h3>150</h3>
+                <h3>{{ $courses }}</h3>
 
-                <p>New Orders</p>
+                <p>Curso(s)</p>
             </div>
             <div class="icon">
-                <i class="ion ion-bag"></i>
+                <i class="fas fa-graduation-cap"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.courses.index') }}" class="small-box-footer">Visualizar<i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -31,14 +31,14 @@
         <!-- small box -->
         <div class="small-box bg-green">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+                <h3>{{ $links }}<sup style="font-size: 20px"></sup></h3>
 
-                <p>Bounce Rate</p>
+                <p>Link(s) de Utilidades</p>
             </div>
             <div class="icon">
-                <i class="ion ion-stats-bars"></i>
+                <i class="fas fa-link"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.links.index') }}" class="small-box-footer">Visualizar <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -46,14 +46,14 @@
         <!-- small box -->
         <div class="small-box bg-yellow">
             <div class="inner">
-                <h3>44</h3>
+                <h3>{{ $news }}</h3>
 
-                <p>User Registrations</p>
+                <p>Notícias</p>
             </div>
             <div class="icon">
-                <i class="ion ion-person-add"></i>
+                <i class="far fa-newspaper"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.news.index') }}" class="small-box-footer">Visualizar <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
@@ -61,14 +61,14 @@
         <!-- small box -->
         <div class="small-box bg-red">
             <div class="inner">
-                <h3>65</h3>
+                <h3>{{ $photos }}</h3>
 
-                <p>Unique Visitors</p>
+                <p>Foto(s)</p>
             </div>
             <div class="icon">
-                <i class="ion ion-pie-graph"></i>
+                <i class="fas fa-photo-video"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            <a href="{{ route('admin.galleries.index') }}" class="small-box-footer">Visualizar <i class="fa fa-arrow-circle-right"></i></a>
         </div>
     </div>
     <!-- ./col -->
