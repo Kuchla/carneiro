@@ -4,7 +4,7 @@
 
 @section('content_header')
 <h1>
-    <a href="{{ route('admin.courses.index') }}">
+    <a href="{{ route('admin.galleries.index') }}">
         {{ trans('adminlte::adminlte.gallery.page') }}
     </a>
 

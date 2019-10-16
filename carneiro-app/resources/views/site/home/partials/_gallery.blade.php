@@ -10,7 +10,7 @@
                         <strong>Todas</strong></li>
                     @foreach ($categories as $category)
                     <li class="gallery-menu" class="filter-active" id="gm" data-filter=".{{$category}}">
-                        <strong>{{ $category }}</strong></li>
+                        <strong>{{ translate_category($category) }}</strong></li>
                     @endforeach
                 </ul>
             </div>

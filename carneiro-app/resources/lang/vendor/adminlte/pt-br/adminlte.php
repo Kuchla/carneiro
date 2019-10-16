@@ -66,8 +66,8 @@ return [
     'gallery'                  =>  [
         'page'              =>  'Galeria',
         'category'          =>  'Categoria',
-        'description'       =>  'Descrição',
-        'image'             =>  'Imagem',
+        'description'       =>  'Nome do album',
+        'image'             =>  'Imagens',
     ],
     'breadcrumbs'         =>  [
         'create'          => 'Criar',

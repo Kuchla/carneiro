@@ -29,6 +29,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">{{ trans('adminlte::adminlte.id') }}</th>
+                                    <th scope="col">{{ trans('adminlte::adminlte.gallery.description') }}</th>
                                     <th scope="col">{{ trans('adminlte::adminlte.gallery.category') }}</th>
                                     <th scope="col">{{ trans('adminlte::adminlte.admin') }}</th>
                                 </tr>
@@ -37,7 +38,8 @@
                                 @foreach ($galleries as $gallery)
                                 <tr>
                                     <td>{{ $gallery[0]->id }}</td>
-                                    <td>{{ $gallery[0]->category }}</td>
+                                    <td>{{ $gallery[0]->referent }}</td>
+                                    <td>{{ translate_category($gallery[0]->category) }}</td>
                                     <td>
                                         <a class="btn btn-success"
                                             href="{{ route('admin.galleries.show', ['category' => $gallery[0]->category]) }}">

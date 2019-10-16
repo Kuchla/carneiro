@@ -10,19 +10,32 @@
         </header>
         <div class="row">
             <div class="col-lg-12">
-                <ul id="show-gallery-flters">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Example select</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                    <a class="btn btn-primary" href="#" role="button">Link</a>
+
+                </div>
+
+                {{-- <ul id="show-gallery-flters">
                     <li lass="gallery-menu" id="gmt" onclick='clickfunc(this)' data-filter="Todas">Todos</li>
 
                     @foreach ($categories as $category)
                     <li class="show-gallery-menu" class="filter-active" id="gm" data-filter=".{{$category}}">
-                        {{ $category }}
-                    </li>
-                    @endforeach
+                {{ $category }}
+                </li>
+                @endforeach
 
-                    <div class="albuns">
-                        @include('site.gallery.partials._albuns')
-                    </div>
-                </ul>
+                <div class="albuns">
+                    @include('site.gallery.partials._albuns')
+                </div>
+                </ul> --}}
             </div>
 
         </div>
@@ -30,7 +43,6 @@
             @foreach ($galleries as $gallery)
 
             @foreach ($gallery->images as $image)
-
 
             <div class="col-lg-4 col-md-6 show-gallery-item {{ $gallery->category }}">
                 <div class="show-gallery-wrap">
