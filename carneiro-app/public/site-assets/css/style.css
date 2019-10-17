@@ -690,6 +690,11 @@ h6 {
     padding-bottom: 25px;
   }
 
+  #show-gallery .gallery-search{
+    padding-top: 15px;
+    padding-bottom: 50px;
+  }
+
   #show-gallery #show-gallery-flters {
     padding: 0;
     margin: 5px 0 35px 0;
@@ -997,11 +1002,11 @@ h6 {
   transition: all 0.3s ease-in-out;
 }
 
-#gallery #gallery-flters li:hover,
+/* #gallery #gallery-flters li:hover,
 #gallery #gallery-flters li.filter-active {
   background: #007bff;
   color: #fff;
-}
+} */
 
 #gallery #gallery-flters li:last-child {
   margin-right: 0;

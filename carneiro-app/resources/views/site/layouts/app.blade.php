@@ -34,12 +34,10 @@
         <div class="container">
             <a href="{{ route('site.home') }}">
                 <div class="logo float-left">
-                    <!-- image logo -->
-
                     <img src="{{asset('site-assets/img/carneiro-logo.png')}}" alt="carneiro-logo" class="img-fluid">
                 </div>
                 <div class="logo float-left">
-                    <h1 class="text-light"><a href="#header" class="scrollto"><span>Colégio Estadual</span></h1>
+                    <h1 class="text-light"><a class="scrollto"><span>Colégio Estadual</span></a></h1>
                     <h5><strong>Francisco Carneiro Martins</strong></h5>
                 </div>
             </a>

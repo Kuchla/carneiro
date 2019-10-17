@@ -5,14 +5,9 @@
         </header>
         <div class="row">
             <div class="col-lg-12">
-                <ul id="gallery-flters">
-                    <li lass="gallery-menu" id="gmt" onclick='clickfunc(this)' data-filter="Todas">
-                        <strong>Todas</strong></li>
-                    @foreach ($categories as $category)
-                    <li class="gallery-menu" class="filter-active" id="gm" data-filter=".{{$category}}">
-                        <strong>{{ translate_category($category) }}</strong></li>
-                    @endforeach
-                </ul>
+                <div id="gallery-flters">
+                    <strong>Fotos recentes</strong></li>
+                </div>
             </div>
         </div>
         <div class="row gallery-container">
@@ -37,9 +32,7 @@
             </div>
             @endforeach
             @endforeach
-
         </div>
-        {{ $galleries->links() }}
     </div>
     <center><strong><a href="{{ route('site.gallery')}}">Ver todas as fotos >></a></strong>
     </center>

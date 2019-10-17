@@ -10,59 +10,33 @@
         </header>
         <div class="row">
             <div class="col-lg-12">
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1">Example select</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </select>
-                    <a class="btn btn-primary" href="#" role="button">Link</a>
-
-                </div>
-
-                {{-- <ul id="show-gallery-flters">
-                    <li lass="gallery-menu" id="gmt" onclick='clickfunc(this)' data-filter="Todas">Todos</li>
-
-                    @foreach ($categories as $category)
-                    <li class="show-gallery-menu" class="filter-active" id="gm" data-filter=".{{$category}}">
-                {{ $category }}
-                </li>
-                @endforeach
-
-                <div class="albuns">
-                    @include('site.gallery.partials._albuns')
-                </div>
-                </ul> --}}
-            </div>
-
-        </div>
-        <div class="row show-gallery-container">
-            @foreach ($galleries as $gallery)
-
-            @foreach ($gallery->images as $image)
-
-            <div class="col-lg-4 col-md-6 show-gallery-item {{ $gallery->category }}">
-                <div class="show-gallery-wrap">
-                    <img src="{{ url('storage/'.$image->name) }}" class="img-fluid" alt="">
-                    <div class="show-gallery-info">
-                        <h4><a id="category" href="#">{{ $gallery->category }}</a></h4>
-                        <div>
-                            <a href="{{ url('storage/'.$image->name) }}" data-lightbox="show-gallery"
-                                data-title="{{ $gallery->description}}" class="link-preview" title="Visualizar"><i
-                                    class="ion ion-eye"></i></a>
-                            <!-- <a href="#" class="link-details" title="More Details"><i class="ion ion-android-open"></i></a> -->
-                        </div>
+                <div class="row gallery-search">
+                    <div class="col-md-5 mb-2">
+                        <select id="filter-category" class="form-control" id="exampleFormControlSelect1">
+                            <option value="0">Todas as categorias</option>
+                            @foreach ($categories as $category)
+                            <option value="{{ $category }}">{{ translate_category($category) }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-5 mb-2">
+                        <select id="filter-album" class="form-control" id="exampleFormControlSelect1">
+                            <option value="0">Todas os álbuns</option>
+                            @foreach ($albuns as $album)
+                            <option value="{{ $album }}">{{ $album }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-md-2 mb-2">
+                            <button type="button" class="btn btn-primary" id="filter-search">Buscar</button>
                     </div>
                 </div>
             </div>
-            @endforeach
-            @endforeach
+        </div>
+        <div class="gallery-form">
+            @include('site.gallery.partials._items')
 
         </div>
-        {{ $galleries->links() }}
     </div>
 </section>
 
