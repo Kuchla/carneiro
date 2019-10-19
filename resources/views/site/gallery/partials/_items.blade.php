@@ -20,6 +20,4 @@
     </div>
     @endforeach
     @endforeach
-    {{ $galleries->links() }}
-
 </div>

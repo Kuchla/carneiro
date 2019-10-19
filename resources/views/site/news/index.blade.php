@@ -17,7 +17,7 @@
                                 <div class="col-12 col-md-12 pt-2 pl-md-1 mb-3 mb-lg-4">
                                     <div class="row">
                                         @foreach ($news as $item)
-                                        <div class="col-4 pb-1 pt-0 pr-1">
+                                        <div class="col-lg-4 col-md-6 pb-1 pt-0 pr-1">
                                             <div class="card border-1 rounded-1 text-white overflow zoom">
                                                 <div class="position-relative">
                                                     <div class="ratio_right-cover-2 image-wrapper">

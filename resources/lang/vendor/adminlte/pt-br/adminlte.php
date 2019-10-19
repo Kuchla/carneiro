@@ -53,6 +53,7 @@ return [
     ],
     'link'                  =>  [
         'page'              =>  'Links',
+        'title'             =>  'Título',
         'name'              =>  'Nome',
         'url'               =>  'URL',
         'image'             =>  'Imagem',

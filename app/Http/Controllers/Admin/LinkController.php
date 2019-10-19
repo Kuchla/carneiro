@@ -73,7 +73,7 @@ class LinkController extends Controller
     {
         $request->validate([
            'link.title'       => 'required|min:4|max:50',
-           'link.url'         => 'required|regex:/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/',
+           'link.url'         => 'required',
            'link.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
        ]);
     }

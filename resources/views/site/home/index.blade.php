@@ -14,13 +14,13 @@
     @include('site.home.partials._courses')
 @endif
 
-@if(!empty($galleries->first()))
+@if(!empty($images->first()))
     @include('site.home.partials._gallery')
 @endif
 
 @if(!empty($collaborators->first()))
     @include('site.home.partials._team')
-@endif    
+@endif
 
 @if(!empty($institutional))
     @include('site.home.partials._institution')

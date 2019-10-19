@@ -21,37 +21,36 @@ class SiteController extends Controller
         $news = News::all();
         $links = Link::all();
         $institutional = Institutional::first();
-        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(2);
+        $images= Image::orderBy('created_at', 'desc')->limit(6)->get();
         $collaborators = Collaborator::where('category', 'Direction')->where('active', 1)->get();
         $categories = Gallery::distinct()->pluck('category');
-
-        return view('site.home.index', compact('courses', 'news', 'links', 'galleries', 'categories', 'institutional', 'collaborators'));
+        return view('site.home.index', compact('courses', 'news', 'links', 'images', 'categories', 'institutional', 'collaborators'));
     }
 
-    public function paginateGallery(Request $request)
-    {
-        if ($request->ajax()) {
-            $categories = Gallery::distinct()->pluck('category');
-            if ($_GET['category'] == 'Todas') {
-                $galleries = Gallery::paginate(3);
-            } else {
-                $galleries = Gallery::where('category', $_GET['category'])->paginate(3);
-            }
-            return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
-        }
-    }
+    // public function paginateGallery(Request $request)
+    // {
+    //     if ($request->ajax()) {
+    //         $categories = Gallery::distinct()->pluck('category');
+    //         if ($_GET['category'] == 'Todas') {
+    //             $galleries = Gallery::paginate(3);
+    //         } else {
+    //             $galleries = Gallery::where('category', $_GET['category'])->paginate(3);
+    //         }
+    //         return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
+    //     }
+    // }
 
-    public function searchGallery($category)
-    {
-        $categories = Gallery::distinct()->pluck('category');
+    // public function searchGallery($category)
+    // {
+    //     $categories = Gallery::distinct()->pluck('category');
 
-        if ($category == 'Todas') {
-            $galleries = Gallery::paginate(6);
-        } else {
-            $galleries = Gallery::where('category', $category)->paginate(6);
-        }
-        return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
-    }
+    //     if ($category == 'Todas') {
+    //         $galleries = Gallery::paginate(6);
+    //     } else {
+    //         $galleries = Gallery::where('category', $category)->paginate(6);
+    //     }
+    //     return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
+    // }
 
     public function course($id)
     {
@@ -74,7 +73,7 @@ class SiteController extends Controller
 
     public function galleriesIndex()
     {
-        $galleries = Gallery::orderBy('created_at', 'desc')->paginate(6);
+        $galleries = Gallery::orderBy('created_at', 'desc')->take(2)->get();
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
         return view('site.gallery.index', compact('galleries', 'categories', 'albuns'));
@@ -85,12 +84,13 @@ class SiteController extends Controller
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
 
-        $galleries = Gallery::when($category, function ($query) use ($category) {
+        $galleries = Gallery::whereHas('images')
+        ->when($category, function ($query) use ($category) {
             $query->where('category', $category);
         })->when($album, function ($query) use ($album) {
             $query->where('referent', $album);
         })
-            ->orderBy('created_at', 'desc')->paginate(6);
+            ->orderBy('created_at', 'desc')->get();
 
         return view('site.gallery.partials._items', compact('galleries', 'categories', 'albuns'));
     }
@@ -100,11 +100,11 @@ class SiteController extends Controller
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
 
-        $galleries = Gallery::when($category, function ($query) use ($category) {
+        $galleries = Gallery::whereHas('images')->when($category, function ($query) use ($category) {
             $query->where('category', $category);
         })->when($album, function ($query) use ($album) {
             $query->where('referent', $album);
-        })->orderBy('created_at', 'desc')->paginate(6);
+        })->orderBy('created_at', 'desc')->get();
 
         return view('site.gallery.show', compact('galleries', 'categories', 'albuns'));
     }

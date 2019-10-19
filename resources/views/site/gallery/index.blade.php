@@ -35,7 +35,6 @@
         </div>
         <div class="gallery-form">
             @include('site.gallery.partials._items')
-
         </div>
     </div>
 </section>

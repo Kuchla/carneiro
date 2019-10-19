@@ -11,16 +11,14 @@
                             <div class="col-12 col-md-12 pt-2 pl-md-1 mb-3 mb-lg-4">
                                 <div class="row">
                                     @foreach ($news as $news)
-                                    <div class="col-4 pb-1 pt-0 pr-1">
+                                    <div class="col-lg-4 col-md-6 mb-4">
                                         <div class="card border-1 rounded-1 text-white overflow zoom">
-                                            <div class="position-relative">
-                                                <div class="ratio_right-cover-2 image-wrapper">
-                                                    <a href="{{ route('site.news.show', $news->id) }}">
-                                                        <img class="rounded img-fluid"
-                                                            src="{{ url('storage/'.$news->image) }}"
-                                                            alt="Image description">
-                                                    </a>
-                                                </div>
+                                            <div class="ratio_right-cover-2 image-wrapper">
+                                                <a href="{{ route('site.news.show', $news->id) }}">
+                                                    <img class="rounded img-fluid"
+                                                        src="{{ url('storage/'.$news->image) }}"
+                                                        alt="Image description">
+                                                </a>
                                                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                                     <a class="p-1 badge badge-primary rounded-0"
                                                         href="{{ route('site.news.show', $news->id) }}">{{translate_category($news->category)}}</a>
