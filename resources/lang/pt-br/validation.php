@@ -210,5 +210,10 @@ return [
             'email'               =>  'e-mail',
             'password'            =>  'senha',
         ],
+        'gallery'         =>  [
+            'description'         =>  'nome do álbum',
+            'category'            =>  'categoria',
+            'image'               =>  'imagem',
+        ],
     ],
 ];

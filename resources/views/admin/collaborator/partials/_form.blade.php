@@ -42,7 +42,8 @@
             <div class="form-group col-md-12 has-feedback {{ $errors->has('collaborator.image') ? 'has-error' : '' }}">
                 <label for="collaborator_image">{{ trans('adminlte::adminlte.collaborator.image') }}</label>
                 <input id="collaborator_image" type="file" class="file image-upload" data-preview-file-type="text"
-                name="collaborator[image]" value="{{ @$collaborator->image ? @url('storage/'.@$collaborator->image) : '' }}" />
+                    name="collaborator[image]"
+                    value="{{ @$collaborator->image ? @url('storage/'.@$collaborator->image) : '' }}" />
                 @if ($errors->has('collaborator.image'))
                 <span class="help-block">
                     <strong>{{ $errors->first('collaborator.image') }}</strong>
@@ -51,15 +52,6 @@
             </div>
         </div>
         <div class="row">
-            <div class="form-group form-check-inline col-md-3 has-feedback">
-                <label for="collaborator_image">{{ trans('adminlte::adminlte.collaborator.active') }}</label>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" name="collaborator[active]" type="checkbox" id="collaborator_active"
-                    @if(old('collaborator.active', @$collaborator->active)) checked @endif>
-                    <label class="form-check-label" for="inlineCheckbox1">Ativo</label>
-                </div>
-            </div>
-
             <div class="form-group col-md-9 has-feedback {{ $errors->has('collaborator.role') ? 'has-error' : '' }}">
                 <label for="collaborator_role">{{ trans('adminlte::adminlte.collaborator.role') }}</label>
                 <input type="text" name="collaborator[role]" class="form-control" id="collaborator_role"
@@ -71,15 +63,15 @@
                 </span>
                 @endif
             </div>
-
-
-
+            <div class="form-group form-check-inline col-md-3 has-feedback">
+                <label for="collaborator_image">{{ trans('adminlte::adminlte.collaborator.active') }}</label>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" name="collaborator[active]" type="checkbox" id="collaborator_active"
+                        @if(old('collaborator.active', @$collaborator->active)) checked @endif>
+                    <label class="form-check-label" for="inlineCheckbox1">Ativo</label>
+                </div>
+            </div>
         </div>
-
-        <div class="row">
-
-        </div>
-
         <div class="row">
             <div class="form-group col-md-12">
                 <div class="box-footer">
@@ -95,26 +87,3 @@
     </div>
     </form>
 </div>
-
-<script>
-    $(document).ready(function () {
-        $("#course_description").summernote({
-            lang: "pt-BR",
-        });
-    });
-
-</script>
-
-<script>
-    function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#show_img')
-                    .attr('src', e.target.result);
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-</script>

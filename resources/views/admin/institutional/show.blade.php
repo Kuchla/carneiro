@@ -15,23 +15,24 @@
 @stop
 
 @section('content')
-
-<div class="box box-widget widget-user-2">
-  <!-- Add the bg color to the header using any of the bg-* classes -->
-  <div class="widget-user-header bg-gray">
-    
-    <!-- /.widget-user-image -->
-    <h3 class="widget-user-username"><strong>Título: </strong> {{$institutional->title}}</h3>
-    </h5>
-  </div>
-  <div class="box-footer no-padding">
-    <ul class="nav nav-stacked">
-      <li><strong>Sobre o colégio: </strong> {!! $institutional->about !!}
-      </li>
+<div class="box-body">
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>Título</b>
+            <p class="text-muted">
+                {{$institutional->title}}
+            </p>
+        </li>
+        <li class="list-group-item">
+            <b>Descrição</b>
+            <p class="text-muted">
+                {!! $institutional->about !!}
+            </p>
+        </li>
     </ul>
-  </div>
+    <a class="btn btn-warning" href="{{ route('admin.institutionals.edit', ['id' => $institutional->id]) }}">
+            <i class="fa fa-edit"> Editar</i>
+        </a>
 </div>
-<a class="btn btn-warning" href="{{ route('admin.institutionals.edit', ['id' => $institutional->id]) }}">
-  <i class="fa fa-edit"> Editar</i>
-</a>
+
 @stop

@@ -42,7 +42,7 @@
                                     <td>{{ translate_category($gallery[0]->category) }}</td>
                                     <td>
                                         <a class="btn btn-success"
-                                            href="{{ route('admin.galleries.show', ['category' => $gallery[0]->category]) }}">
+                                            href="{{ route('admin.galleries.show', ['category' => $gallery[0]->referent]) }}">
                                             <i class="fa fa-eye"> {{ trans('adminlte::adminlte.btn.show') }}</i>
                                         </a>
                                     </td>

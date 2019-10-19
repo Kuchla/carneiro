@@ -27,8 +27,8 @@ class GalleryController extends Controller
 
     public function store(Request $request, Gallery $gallery)
     {
-        // $this->validation($request);
-        //   dd($request->gallery['image'] );
+        $this->validation($request);
+
         $gallery->user_id = Auth::id();
         $gallery->referent = $request->gallery['description'];
         $gallery->category = $request->gallery['category'];
@@ -75,9 +75,9 @@ class GalleryController extends Controller
         return redirect(route('admin.galleries.show', compact('gallery')));
     }
 
-    public function show($category)
+    public function show($album)
     {
-        $galleries = Gallery::where('category', $category)->get()->groupBy('referent');
+        $galleries = Gallery::where('referent', $album)->get();
         return view('admin.gallery.show', compact('galleries'));
     }
 
