@@ -4,11 +4,11 @@
             <h3 class="section-title">Notícias</h3>
         </header>
         <div class="row about-container">
-            <div class="col-lg-12 content order-lg-1 order-2">
+            <div class="col-lg-12">
                 <div class="row">
-                    <div class="col-12 pb-5">
+                    <div class="col-12">
                         <div class="row">
-                            <div class="col-12 col-md-12 pt-2 pl-md-1 mb-3 mb-lg-4">
+                            <div class="col-12 col-md-12 ">
                                 <div class="row">
                                     @foreach ($news as $news)
                                     <div class="col-lg-4 col-md-6 mb-4">
@@ -33,8 +33,10 @@
                                 </div>
                             </div>
                         </div>
-                        <center><strong><a href="{{ route('site.news')}}">Ver todas as notícias >></a></strong>
+                        <center>
+                            <strong><a href="{{ route('site.news.index')}}">Ver todas as notícias >></a></strong>
                         </center>
+                        <br>
                     </div>
                 </div>
             </div>

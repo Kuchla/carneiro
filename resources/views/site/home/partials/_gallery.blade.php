@@ -19,8 +19,8 @@
                         <h4><a id="category">{{ translate_category($image->category) }}</a></h4>
                         <div class="mb-4">
                             <a href="{{ url('storage/'.$image->name) }}" data-lightbox="gallery"
-                                data-title="{{ $image->gallery->description}}" class="link-preview" title="Visualizar"><i
-                                    class="ion ion-eye"></i></a>
+                                data-title="{{ $image->gallery->description}}" class="link-preview"
+                                title="Visualizar"><i class="ion ion-eye"></i></a>
                         </div>
                         <small><a style="color:aliceblue" id="category">{{ $image->gallery->referent }}</a></small>
 
@@ -30,6 +30,8 @@
             @endforeach
         </div>
     </div>
-    <center><strong><a href="{{ route('site.gallery')}}">Ver todas as fotos >></a></strong>
+    <div class="row text-center" ></div>
+    <center>
+        <strong><a href="{{ route('site.gallery.index')}}">Ver todas as fotos >></a></strong>
     </center>
 </section>

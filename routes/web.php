@@ -1,15 +1,7 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+Auth::routes();
+
 Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'admin'], function()
 {
     Route::get('/', 'AdminController@index')->name('admin.home');
@@ -28,26 +20,16 @@ Route::group(['middleware' => ['auth'], 'namespace' => 'Admin', 'prefix' => 'adm
     Route::resource('collaborators', 'CollaboratorController')->names('admin.collaborators');
     Route::resource('galleries', 'GalleryController')->names('admin.galleries');
     Route::resource('users', 'UserController')->names('admin.users');
-
 });
 
 Route::get('/', 'Site\SiteController@index')->name('site.home');
-Route::get('/paginate', 'Site\SiteController@paginateGallery')->name('site.home.gallery');
-Route::get('/galleries/{category}/{album}', 'Site\SiteController@filterGallery')->name('site.home.gallery.filter');
-Route::get('/galleries/news/{category}/{album}', 'Site\SiteController@filterNewsGallery')->name('site.home.gallery.news.filter');
 
+Route::get('/galleries/{category}/{album}', 'Site\SiteController@filterGallery')->name('site.gallery.filter');
+Route::get('/galleries/{album}', 'Site\SiteController@filterNewsGallery')->name('site.gallery.filter.album');
+Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.gallery.index');
 
-Route::get('/courses/{id}', 'Site\SiteController@course')->name('site.courses.show');
-Route::get('/news/{id}', 'Site\SiteController@news')->name('site.news.show');
-Route::get('/news', 'Site\SiteController@newsIndex')->name('site.news');
+Route::get('/courses/{id}', 'Site\SiteController@courseShow')->name('site.courses.show');
 
-Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.gallery');
-// Route::get('/galleries', 'Site\SiteController@galleriesIndex')->name('site.galleries');
+Route::get('/news/{id}', 'Site\SiteController@newsShow')->name('site.news.show');
+Route::get('/news', 'Site\SiteController@newsIndex')->name('site.news.index');
 
-Auth::routes([]);
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

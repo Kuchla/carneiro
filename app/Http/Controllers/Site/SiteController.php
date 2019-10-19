@@ -18,7 +18,7 @@ class SiteController extends Controller
     public function index()
     {
         $courses = Course::all();
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->limit(6)->get();
         $links = Link::all();
         $institutional = Institutional::first();
         $images= Image::orderBy('created_at', 'desc')->limit(6)->get();
@@ -27,38 +27,13 @@ class SiteController extends Controller
         return view('site.home.index', compact('courses', 'news', 'links', 'images', 'categories', 'institutional', 'collaborators'));
     }
 
-    // public function paginateGallery(Request $request)
-    // {
-    //     if ($request->ajax()) {
-    //         $categories = Gallery::distinct()->pluck('category');
-    //         if ($_GET['category'] == 'Todas') {
-    //             $galleries = Gallery::paginate(3);
-    //         } else {
-    //             $galleries = Gallery::where('category', $_GET['category'])->paginate(3);
-    //         }
-    //         return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
-    //     }
-    // }
-
-    // public function searchGallery($category)
-    // {
-    //     $categories = Gallery::distinct()->pluck('category');
-
-    //     if ($category == 'Todas') {
-    //         $galleries = Gallery::paginate(6);
-    //     } else {
-    //         $galleries = Gallery::where('category', $category)->paginate(6);
-    //     }
-    //     return view('site.home.partials._gallery', compact('galleries', 'categories'))->render();
-    // }
-
-    public function course($id)
+    public function courseShow($id)
     {
         $course = Course::find($id);
         return view('site.course.index', compact('course', 'galleries'));
     }
 
-    public function news($id)
+    public function newsShow($id)
     {
         $news = News::find($id);
         return view('site.news.show', compact('news'));
@@ -69,7 +44,6 @@ class SiteController extends Controller
         $news = News::orderBy('created_at', 'desc')->paginate(6);
         return view('site.news.index', compact('news'));
     }
-
 
     public function galleriesIndex()
     {
@@ -95,14 +69,12 @@ class SiteController extends Controller
         return view('site.gallery.partials._items', compact('galleries', 'categories', 'albuns'));
     }
 
-    public function filterNewsGallery($category, $album)
+    public function filterNewsGallery($album)
     {
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
 
-        $galleries = Gallery::whereHas('images')->when($category, function ($query) use ($category) {
-            $query->where('category', $category);
-        })->when($album, function ($query) use ($album) {
+        $galleries = Gallery::whereHas('images')->when($album, function ($query) use ($album) {
             $query->where('referent', $album);
         })->orderBy('created_at', 'desc')->get();
 
