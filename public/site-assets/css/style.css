@@ -835,77 +835,20 @@ h6 {
     opacity: 1;
   }
 
+/* links */
 
-/* Services Section
---------------------------------*/
-
-#services {
-  padding: 60px 0 40px 0;
-  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-}
-
-#services .box {
-  padding: 30px;
-  position: relative;
-  overflow: hidden;
-  border-radius: 10px;
-  margin: 0 10px 40px 10px;
-  background: #fff;
-  box-shadow: 0 10px 29px 0 rgba(68, 88, 144, 0.1);
-  transition: all 0.3s ease-in-out;
-}
-
-#services .box:hover {
-  -webkit-transform: translateY(-5px);
-  transform: translateY(-5px);
-}
-
-#services .icon {
-  position: absolute;
-  left: -10px;
-  top: calc(50% - 32px);
-}
-
-#services .icon i {
-  font-size: 64px;
-  line-height: 1;
-  transition: 0.5s;
-}
-
-#services .title {
-  margin-left: 40px;
-  font-weight: 700;
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-#services .title a {
-  color: #111;
-}
-
-#services .box:hover .title a {
-  color: #007bff;
-}
-
-#services .description {
-  font-size: 14px;
-  margin-left: 40px;
-  line-height: 24px;
-  margin-bottom: 0;
-}
-
-#why-us {
+#links {
     padding: 60px 0;
     background: #fff;
     border-radius: 10px;
   }
 
-  #why-us .section-header h3,
-  #why-us .section-header p {
+  #links .section-header h3,
+  #links .section-header p {
     color: #0a0e13;
   }
 
-  #why-us .card {
+  #links .card {
     background: #ecf5ff;
     border-color: #dce9f8;
     border-radius: 5px;
@@ -918,28 +861,28 @@ h6 {
     width: 100%;
   }
 
-  #why-us .card:hover {
+  #links .card:hover {
     background: #dce9f8;
     border-color: #ecf5ff;
   }
 
-  #why-us .card i {
+  #links .card i {
     font-size: 48px;
     padding-top: 15px;
     color: #bfddfe;
   }
 
-  #why-us .card h5 {
+  #links .card h5 {
     font-size: 18px;
     font-weight: 500;
   }
 
-  #why-us .card p {
+  #links .card p {
     font-size: 15px;
     color: #d8eafe;
   }
 
-  #why-us .card .readmore {
+  #links .card .readmore {
     color: #fff;
     font-weight: 600;
     display: inline-block;
@@ -947,15 +890,15 @@ h6 {
     border-bottom: #00458f solid 2px;
   }
 
-  #why-us .card .readmore:hover {
+  #links .card .readmore:hover {
     border-bottom: #fff solid 2px;
   }
 
-  #why-us .counters {
+  #links .counters {
     padding-top: 40px;
   }
 
-  #why-us .counters span {
+  #links .counters span {
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
     font-size: 48px;
@@ -963,7 +906,7 @@ h6 {
     color: #fff;
   }
 
-  #why-us .counters p {
+  #links .counters p {
     padding: 0;
     margin: 0 0 20px 0;
     font-family: "Montserrat", sans-serif;
@@ -1270,7 +1213,7 @@ h6 {
   opacity: 1;
 }
 
-/* Testimonials Section
+/* Institutional Section
 --------------------------------*/
 
 #institutional {
@@ -1443,27 +1386,6 @@ h6 {
   width: 125px;
   border-radius: 1%;
 
-}
-
-/* institution Section
---------------------------------*/
-
-#institution {
-  padding: 60px 0;
-  box-shadow: inset 0px 0px 12px 0px rgba(0, 0, 0, 0.1);
-  /* background: #dee2e657; */
-  color:rgba(245, 245, 242, 0.884);
-  padding-bottom: 400px;
-}
-
-#institution .card-color {
-    background-color: #ecf5ff;
-}
-
-#institution .institution-wrap {
-  border-top: 1px solid #d6eaff;
-  border-left: 1px solid #d6eaff;
-  margin-bottom: 30px;
 }
 
 /* Contact Section
@@ -1787,7 +1709,7 @@ h6 {
     text-align: center;
   }
 
-  #why-us .card {
+  #links .card {
     margin: 0;
   }
 }
@@ -1811,28 +1733,9 @@ h6 {
   .section-header p {
     width: 100%;
   }
-
-  #testimonials .testimonial-item {
-    text-align: center;
-  }
-
-  #testimonials .testimonial-item .testimonial-img {
-    float: none;
-    margin: auto;
-  }
-
-  #testimonials .testimonial-item h3,
-  #testimonials .testimonial-item h4,
-  #testimonials .testimonial-item p {
-    margin-left: 0;
-  }
 }
 
-@media (max-width: 574px) {
-  #intro {
-    padding: 100px 0 20px 0;
-  }
-}
+/* new cards */
 
 .b-0 {
   bottom: 0;
@@ -1862,103 +1765,7 @@ h6 {
   transform: scale(1.1);
 }
 
-/*--------------------------------------------------------------
-# Schedule Section
---------------------------------------------------------------*/
 
-#schedule {
-  padding: 60px 0 60px 0;
-}
-
-#schedule .nav-tabs {
-  text-align: center;
-  margin: auto;
-  display: block;
-  border-bottom: 0;
-  margin-bottom: 30px;
-}
-
-#schedule .nav-tabs li {
-  display: inline-block;
-  margin-bottom: 0;
-}
-
-#schedule .nav-tabs a {
-  border: none;
-  border-radius: 50px;
-  font-weight: 600;
-  background-color: #0e1b4d;
-  color: #fff;
-  padding: 10px 100px;
-}
-
-#schedule .nav-tabs a.active {
-  background-color: #f82249;
-  color: #fff;
-}
-
-#schedule .sub-heading {
-  text-align: center;
-  font-size: 18px;
-  font-style: italic;
-  margin: 0 auto 30px auto;
-}
-
-#schedule .tab-pane {
-  transition: ease-in-out .2s;
-}
-
-#schedule .schedule-item {
-  border-bottom: 1px solid #cad4f6;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  transition: background-color ease-in-out 0.3s;
-}
-
-#schedule .schedule-item:hover {
-  background-color: #fff;
-}
-
-#schedule .schedule-item time {
-  padding-bottom: 5px;
-  display: inline-block;
-}
-
-#schedule .schedule-item .speaker {
-  width: 60px;
-  height: 60px;
-  overflow: hidden;
-  border-radius: 50%;
-  float: left;
-  margin: 0 10px 10px 0;
-}
-
-#schedule .schedule-item .speaker img {
-  height: 100%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  margin-left: 50%;
-  transition: all ease-in-out 0.3s;
-}
-
-#schedule .schedule-item h4 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 5px;
-}
-
-#schedule .schedule-item h4 span {
-  font-style: italic;
-  color: #19328e;
-  font-weight: normal;
-  font-size: 16px;
-}
-
-#schedule .schedule-item p {
-  font-style: italic;
-  color: #152b79;
-  margin-bottom: 0;
-}
 
 
 

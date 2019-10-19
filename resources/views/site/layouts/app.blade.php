@@ -48,7 +48,7 @@
                     <li><a href="{{ url('/#gallery') }}">Galeria</strong></a></li>
                     <li><a href="{{ url('/#team') }}">Direção</a></li>
                     <li><a href="{{ url('/#institutional') }}">Institucional</strong></a></li>
-                    <li><a href="{{ url('/#why-us') }}">Utilidades</strong></a></li>
+                    <li><a href="{{ url('/#links') }}">Utilidades</strong></a></li>
                     <li><a href="{{ url('/#contact') }}">Localização</a></li>
                 </ul>
             </nav>
