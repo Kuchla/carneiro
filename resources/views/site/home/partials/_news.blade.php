@@ -34,9 +34,8 @@
                             </div>
                         </div>
                         <center>
-                            <strong><a href="{{ route('site.news.index')}}">Ver todas as notícias >></a></strong>
+                            <strong><a href="{{ route('site.news.index')}}">Ver todas as notícias</a></strong>
                         </center>
-                        <br>
                     </div>
                 </div>
             </div>

@@ -79,11 +79,11 @@ class CourseController extends Controller
     private function validation(Request $request)
     {
         $request->validate([
-            'course.name'                => 'required|min:4|max:50',
+            'course.name'                => 'required|min:4|max:30',
             'course.logo'                => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
             'course.schedule_integrated' => 'nullable',
             'course.schedule_subsequent' => 'nullable',
-            'course.description'         => 'required|min:10',
+            'course.description'         => 'required|min:30',
         ]);
     }
 }

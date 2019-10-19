@@ -46,12 +46,12 @@ class InstitutionalController extends Controller
     public function update(Request $request, Institutional $institutional)
     {
         $this->validation($request);
-        
+
         $institutional->user_id = Auth::id();
         $institutional->title = $request->institutional['title'];
         $institutional->about = $request->institutional['about'];
         $institutional->update();
-        
+
         return redirect(route('admin.institutionals.show', compact('institutional')));
     }
 
@@ -64,7 +64,7 @@ class InstitutionalController extends Controller
     {
         $request->validate([
            'institutional.title'       => 'required|min:4|max:50',
-           'institutional.about'         => 'required',
+           'institutional.about'         => 'required|min:30',
        ]);
     }
 }

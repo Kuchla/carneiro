@@ -12,7 +12,7 @@
             <div class="row about-container">
                 <div class="col-lg-12 content order-lg-1 order-2">
                     <div class="row">
-                        <div class="col-12 pb-5">
+                        <div class="col-12">
                             <div class="row">
                                 <div class="col-12 col-md-12 pt-2 pl-md-1 mb-3 mb-lg-4">
                                     <div class="row">
@@ -28,8 +28,8 @@
                                                         </a>
                                                     </div>
                                                     <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
-                                                        <div class="p-1 badge badge-primary rounded-1"
-                                                            >{{$item->category}}</div>
+                                                        <div class="p-1 badge badge-primary rounded-1">
+                                                            {{ translate_category($item->category) }}</div>
                                                         <a href="{{ route('site.news.show', $item->first()->id) }}">
                                                             <h2 class="h5 text-white my-1">{{ $item->title }}</h2>
                                                         </a>

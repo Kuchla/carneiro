@@ -32,7 +32,8 @@
                     <i class="fa fa-download"></i> Ementa curso subsequente </a>
                 @endif
                 @if($course->schedule_integrated)
-                <a target="_blank" class="btn btn-primary btn-sm" href="{{ url('storage/'.$course->schedule_integrated) }}">
+                <a target="_blank" class="btn btn-primary btn-sm"
+                    href="{{ url('storage/'.$course->schedule_integrated) }}">
                     <i class="fa fa-download"></i> Ementa curso integrado </a>
                 @endif
             </p>
@@ -42,7 +43,6 @@
             <p class="text-muted">
                 {!! $course->description !!}
             </p>
-
         </li>
         <li class="list-group-item">
             <b>Imagem</b>

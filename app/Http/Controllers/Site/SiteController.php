@@ -47,7 +47,7 @@ class SiteController extends Controller
 
     public function galleriesIndex()
     {
-        $galleries = Gallery::orderBy('created_at', 'desc')->take(2)->get();
+        $galleries = Gallery::orderBy('created_at', 'desc')->take(1)->get();
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
         return view('site.gallery.index', compact('galleries', 'categories', 'albuns'));

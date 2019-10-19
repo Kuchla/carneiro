@@ -3,13 +3,13 @@
         <header class="section-header">
             <h3 class="section-title">Galeria</h3>
         </header>
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-lg-12">
                 <div id="gallery-flters">
                     <strong>Fotos recentes</strong></li>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <div class="row gallery-container">
             @foreach ($images as $image)
             <div class="col-lg-4 col-md-6 gallery-item {{ $image->gallery->category }}">
@@ -32,6 +32,6 @@
     </div>
     <div class="row text-center" ></div>
     <center>
-        <strong><a href="{{ route('site.gallery.index')}}">Ver todas as fotos >></a></strong>
+        <strong><a href="{{ route('site.gallery.index')}}">Ver todas as fotos</a></strong>
     </center>
 </section>

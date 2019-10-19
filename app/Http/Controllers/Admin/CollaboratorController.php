@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Collaborator;
 use App\Enums\CollaboratorCategory;
 use App\Helpers\ImageConfig;
-use BenSampo\Enum\Rules\EnumValue;
+use BenSampo\Enum\Rules\;
 use Illuminate\Support\Facades\Auth;
 
 class CollaboratorController extends Controller
