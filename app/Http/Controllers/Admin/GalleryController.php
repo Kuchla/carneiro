@@ -42,7 +42,7 @@ class GalleryController extends Controller
             ]);
         }
 
-        $gallery = $gallery->category;
+        $gallery = $gallery->referent;
 
         return redirect(route('admin.galleries.show', compact('gallery')));
     }
@@ -56,7 +56,15 @@ class GalleryController extends Controller
     public function destroy($image)
     {
         $image = Image::where('id', $image)->get();
+        $galleryId = Gallery::where('id', $image->first()->gallery_id)->first()->id;
+        $countImages = Image::where('gallery_id', $galleryId)->count();
         $image->first()->delete();
+
+        if($countImages == 1){
+            Gallery::where('id', $galleryId)->delete();
+            return redirect(route('admin.galleries.index'));
+        }
+
         return redirect()->back();
     }
 
@@ -86,7 +94,7 @@ class GalleryController extends Controller
         $request->validate([
             'gallery.description'        => 'required|min:4|max:40',
             'gallery.category'    => 'required',
-            'gallery.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
+            'gallery.image.*'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
         ]);
     }
 }
