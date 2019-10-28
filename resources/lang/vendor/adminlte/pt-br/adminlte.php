@@ -31,15 +31,15 @@ return [
     ],
     'news'                  =>  [
         'page'              => 'Notícias',
-        'title'             =>  'Título',
-        'category'          =>  'Categoria',
+        'title'             => 'Título',
+        'category'          => 'Categoria',
         'image'             => 'Imagem',
         'description'       => 'Texto',
     ],
     'collaborator'                  =>  [
         'page'              => 'Colaboradores',
-        'name'              =>  'Nome',
-        'category'          =>  'Categoria',
+        'name'              => 'Nome',
+        'category'          => 'Categoria',
         'image'             => 'Imagem',
         'role'              => 'Cargo',
         'active'            => 'Status',
@@ -62,29 +62,26 @@ return [
     'institutional'                  =>  [
         'page'              =>  'Institutional',
         'title'             =>  'Título',
-        'about'               =>  'Sobre a instituição',
+        'about'             =>  'Sobre a instituição',
     ],
     'gallery'                  =>  [
         'page'              =>  'Galeria',
         'category'          =>  'Categoria',
-        'description'       =>  'Nome do album',
+        'description'       =>  'Nome do álbum',
         'image'             =>  'Imagens',
     ],
-    'breadcrumbs'         =>  [
-        'create'          => 'Criar',
-        'edit'            => 'Editar',
-        'index'           => 'Índice',
-        'show'            => 'Visualizar',
+    'breadcrumbs'           =>  [
+        'create'            => 'Criar',
+        'edit'              => 'Editar',
+        'index'             => 'Índice',
+        'show'              => 'Visualizar',
     ],
-    'btn'                 =>  [
-        'new'                     => 'Novo',
-        'edit'                    => 'Editar',
-        'show'                    => 'Visualizar',
-        'delete'                  => 'Deletar',
-        'cancel'                  => 'Cancelar',
-        'save'                    => 'Salvar',
-
-
+    'btn'                   =>  [
+        'new'               => 'Novo',
+        'edit'              => 'Editar',
+        'show'              => 'Visualizar',
+        'delete'            => 'Deletar',
+        'cancel'            => 'Cancelar',
+        'save'              => 'Salvar',
     ],
-
 ];

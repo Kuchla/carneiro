@@ -12,7 +12,7 @@ class LinkController extends Controller
 {
     public function index(Link $link)
     {
-        $links = Link::all();
+        $links = Link::orderBy('created_at', 'desc')->get();
         return view('admin.link.index', compact('links'));
     }
 

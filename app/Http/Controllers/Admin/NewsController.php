@@ -14,7 +14,7 @@ class NewsController extends Controller
 {
     public function index(News $news)
     {
-        $news = News::all();
+        $news = News::orderBy('created_at', 'desc')->get();
         return view('admin.news.index', compact('news'));
     }
 
@@ -79,7 +79,7 @@ class NewsController extends Controller
             'news.title'       => 'required|min:4|max:50',
             'news.category'    => 'required|not_in:Selecione',
             'news.image'       => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
-            'news.description' => 'required|min:50',
+            'news.description' => 'required|min:15',
         ]);
     }
 }

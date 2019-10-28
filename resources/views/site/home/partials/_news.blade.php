@@ -22,7 +22,7 @@
                                                 <div class="position-absolute p-2 p-lg-3 b-0 w-100 bg-shadow">
                                                     <a class="p-1 badge badge-primary rounded-0"
                                                         href="{{ route('site.news.show', $news->id) }}">{{translate_category($news->category)}}</a>
-                                                    <a href="{{ route('site.news.show', $news->first()->id) }}">
+                                                    <a href="{{ route('site.news.show', $news->id) }}">
                                                         <h2 class="h5 text-white my-1">{{ $news->title }}</h2>
                                                     </a>
                                                 </div>

@@ -16,7 +16,7 @@ class UserController extends Controller
         if(!$logged->is_admin){
             return redirect(route('admin.users.edit', compact('logged')));
         }
-        $users = User::all();
+        $users = User::orderBy('created_at', 'desc')->get();
         return view('admin.user.index', compact('users'));
     }
 

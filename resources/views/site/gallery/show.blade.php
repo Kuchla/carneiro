@@ -13,7 +13,7 @@
             <div class="col-lg-12">
                 <div class="row gallery-search">
                     <div class="col-md-5 mb-2">
-                        <select id="filter-category" class="form-control" id="exampleFormControlSelect1">
+                        <select id="filter-category" class="form-control">
                             <option value="0">Todas as categorias</option>
                             @foreach ($categories as $category)
                             <option value="{{ $category }}">{{ translate_category($category) }}</option>
@@ -21,7 +21,7 @@
                         </select>
                     </div>
                     <div class="col-md-5 mb-2">
-                        <select id="filter-album" class="form-control" id="exampleFormControlSelect1">
+                        <select id="filter-album" class="form-control">
                             <option value="0">Todas os álbuns</option>
                             @foreach ($albuns as $album)
                             <option value="{{ $album }}">{{ $album }}</option>
@@ -36,9 +36,7 @@
         </div>
         <div class="gallery-form">
             @include('site.gallery.partials._items')
-
         </div>
     </div>
 </section>
-
 @endsection

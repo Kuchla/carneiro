@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Site;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Course;
 use App\News;
@@ -11,19 +10,19 @@ use App\Institutional;
 use App\Gallery;
 use App\Collaborator;
 use App\Image;
-use Illuminate\Support\Facades\DB;
 
 class SiteController extends Controller
 {
     public function index()
     {
-        $courses = Course::all();
+        $courses = Course::orderBy('created_at', 'desc')->get();
         $news = News::orderBy('created_at', 'desc')->limit(6)->get();
-        $links = Link::all();
+        $links = Link::orderBy('created_at', 'desc')->get();
         $institutional = Institutional::first();
         $images= Image::orderBy('created_at', 'desc')->limit(6)->get();
-        $collaborators = Collaborator::where('category', 'Direction')->where('active', 1)->get();
+        $collaborators = Collaborator::where('active', 1)->orderBy('created_at', 'desc')->get();
         $categories = Gallery::distinct()->pluck('category');
+
         return view('site.home.index', compact('courses', 'news', 'links', 'images', 'categories', 'institutional', 'collaborators'));
     }
 
@@ -47,7 +46,7 @@ class SiteController extends Controller
 
     public function galleriesIndex()
     {
-        $galleries = Gallery::orderBy('created_at', 'desc')->take(1)->get();
+        $galleries = Gallery::orderBy('created_at', 'desc')->take(3)->get();
         $categories = Gallery::distinct()->pluck('category');
         $albuns = Gallery::distinct()->pluck('referent');
         return view('site.gallery.index', compact('galleries', 'categories', 'albuns'));

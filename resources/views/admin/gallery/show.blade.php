@@ -17,7 +17,7 @@
 @section('content')
 <br>
 <div class="container">
-    <p class="card-text"> <strong>Link:</strong>  {{ route('site.gallery.filter.album', $galleries->first()->referent) }}</p>
+<p class="card-text"> <strong>Galeria: </strong>{{ $galleries->first()->referent }} | <strong>Link:</strong>  {{ route('site.gallery.filter.album', $galleries->first()->referent) }}</p>
     <div class="row justify-content-md-center">
         @foreach ($galleries as $gallery)
         @foreach($gallery->images as $item)

@@ -6,6 +6,8 @@
 
 @include('site.home.partials._intro')
 
+<main id="main">
+
 @if(!empty($news->first()))
     @include('site.home.partials._news')
 @endif
@@ -32,4 +34,5 @@
 
 @include('site.home.partials._contact')
 
+</main>
 @endsection

@@ -15,7 +15,7 @@ class GalleryController extends Controller
 {
     public function index(Gallery $gallery)
     {
-        $galleries = Gallery::get()->groupBy('category');
+        $galleries = Gallery::orderBy('created_at', 'desc')->get()->groupBy('category');
         return view('admin.gallery.index', compact('galleries'));
     }
 

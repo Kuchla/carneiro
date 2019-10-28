@@ -14,7 +14,7 @@ class CollaboratorController extends Controller
 {
     public function index(Collaborator $collaborator)
     {
-        $collaborators = Collaborator::all();
+        $collaborators = Collaborator::orderBy('created_at', 'desc')->get();
         return view('admin.collaborator.index', compact('collaborators'));
     }
 

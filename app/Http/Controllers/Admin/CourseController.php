@@ -11,7 +11,7 @@ class CourseController extends Controller
 {
     public function index(Course $course)
     {
-        $courses = Course::all();
+        $courses = Course::orderBy('created_at', 'desc')->get();
         return view('admin.course.index', compact('courses'));
     }
 
@@ -83,7 +83,7 @@ class CourseController extends Controller
             'course.logo'                => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
             'course.schedule_integrated' => 'nullable',
             'course.schedule_subsequent' => 'nullable',
-            'course.description'         => 'required|min:30',
+            'course.description'         => 'required|min:15',
         ]);
     }
 }
