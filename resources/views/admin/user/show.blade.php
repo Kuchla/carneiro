@@ -18,7 +18,7 @@
 <div class="box-body">
     <ul class="list-group">
         <li class="list-group-item">
-            <b>Usuaário</b>
+            <b>Usuário</b>
             <p class="text-muted">
                 {{$user->name}}
             </p>

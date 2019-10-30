@@ -64,7 +64,7 @@ class InstitutionalController extends Controller
     {
         $request->validate([
            'institutional.title'       => 'required|min:4|max:50',
-           'institutional.about'         => 'required|min:30',
+           'institutional.about'         => 'required|min:15',
        ]);
     }
 }

@@ -3,6 +3,7 @@
 @section('title', 'Index')
 
 @section('content')
+
 <section id="show-gallery" class="clearfix">
     <div class="container">
         <header class="section-header">
