@@ -16,16 +16,6 @@ class ImageConfig
         $imageResize->save($imagePath);
     }
 
-    public static function ResizeCollaborator($image)
-    {
-        $imagePath = public_path('storage/' . $image);
-        $imageResize = Image::make($imagePath)->resize(
-            400,
-            400
-        );
-        $imageResize->save($imagePath);
-    }
-
     public static function ResizeLinks($image)
     {
         $imagePath = public_path('storage/' . $image);
