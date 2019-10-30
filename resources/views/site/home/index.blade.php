@@ -20,10 +20,6 @@
     @include('site.home.partials._gallery')
 @endif
 
-@if(!empty($collaborators->first()))
-    @include('site.home.partials._team')
-@endif
-
 @if(!empty($institutional))
     @include('site.home.partials._institution')
 @endif

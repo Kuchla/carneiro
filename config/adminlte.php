@@ -140,16 +140,10 @@ return [
             'icon'        => 'photo',
         ],
         [
-            'text'        => 'Administração',
-            'url'         => 'admin/collaborators',
-            'icon'        => 'users',
-        ],
-        [
             'text'        => 'Institucional',
             'url'         => 'admin/institutionals',
             'icon'        => 'institution',
         ],
-
         [
             'text' => 'Usuários',
             'url'  => 'admin/users',

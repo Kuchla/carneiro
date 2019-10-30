@@ -43,10 +43,10 @@
             </a>
             <nav class="main-nav float-right d-none d-lg-block">
                 <ul>
+                    <li><a href="{{ url('/#intro') }}">Home</a></li>
                     <li><a href="{{ url('/#news') }}">Notícias</a></li>
                     <li><a href="{{ url('/#courses') }}">Cursos</a></li>
                     <li><a href="{{ url('/#gallery') }}">Galeria</strong></a></li>
-                    <li><a href="{{ url('/#team') }}">Direção</a></li>
                     <li><a href="{{ url('/#institutional') }}">Institucional</strong></a></li>
                     <li><a href="{{ url('/#links') }}">Utilidades</strong></a></li>
                     <li><a href="{{ url('/#contact') }}">Localização</a></li>
@@ -64,7 +64,7 @@
             </div>
         </div>
     </footer>
-    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+    <a href="{{ route('site.home') }}" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
     <!-- JavaScript Libraries -->
     <script src="{{asset('site-assets/lib/jquery/jquery.min.js')}}"></script>
