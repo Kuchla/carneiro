@@ -33,7 +33,7 @@
     <header id="header" class="fixed-top">
         <div class="container">
             <a href="{{ route('site.home') }}">
-                <div class="logo float-left">
+                <div class="logo float-left back-to-top-nav">
                     <img src="{{asset('site-assets/img/carneiro-logo.png')}}" alt="carneiro-logo" class="img-fluid">
                 </div>
                 <div class="logo float-left">
