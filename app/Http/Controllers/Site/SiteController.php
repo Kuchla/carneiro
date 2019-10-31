@@ -20,7 +20,6 @@ class SiteController extends Controller
         $links = Link::orderBy('created_at', 'desc')->get();
         $institutional = Institutional::first();
         $images= Image::orderBy('created_at', 'desc')->limit(6)->get();
-        $collaborators = Collaborator::where('active', 1)->orderBy('created_at', 'desc')->get();
         $categories = Gallery::distinct()->pluck('category');
 
         return view('site.home.index', compact('courses', 'news', 'links', 'images', 'categories', 'institutional', 'collaborators'));
