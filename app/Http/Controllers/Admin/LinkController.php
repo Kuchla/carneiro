@@ -45,13 +45,19 @@ class LinkController extends Controller
 
     public function destroy(Link $link)
     {
+        $this->deleteStorage($link->image);
         $link->delete();
+
         return redirect(route('admin.links.index'));
     }
 
     public function update(Request $request, Link $link)
     {
         $this->validation($request);
+
+        if(isset($request->link['image'])){
+            $this->deleteStorage($link->image);
+        }
 
         $link->user_id = Auth::id();
         $link->title = $request->link['title'];
@@ -76,5 +82,10 @@ class LinkController extends Controller
            'link.url'         => 'required',
            'link.image'        => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
        ]);
+    }
+
+    public function deleteStorage($link)
+    {
+        unlink(storage_path('app/public/'.$link));
     }
 }

@@ -17,5 +17,11 @@ class DatabaseSeeder extends Seeder
             'is_admin' => 1,
             'password' => Hash::make('asdf456'),
         ]);
+
+        User::firstOrCreate(['email' => 'jk@gmail.com'], [
+            'name' => 'JK',
+            'is_admin' => 1,
+            'password' => Hash::make('cacilds46'),
+        ]);
     }
 }

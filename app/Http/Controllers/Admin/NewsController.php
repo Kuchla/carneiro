@@ -32,7 +32,7 @@ class NewsController extends Controller
         $news->title = $request->news['title'];
         $news->category = $request->news['category'];
         $news->description = $request->news['description'];
-        $news->image = $request->news['image']->store('logos');
+        $news->image = $request->news['image']->store('news');
 
         ImageConfig::resize($news->image);
         $news->save();
@@ -48,13 +48,19 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
+        $this->deleteStorage($news->image);
         $news->delete();
+
         return redirect(route('admin.news.index'));
     }
 
     public function update(Request $request, News $news)
     {
         $this->validation($request);
+
+        if(isset($request->news['image'])){
+            $this->deleteStorage($news->image);
+        }
 
         $news->user_id = Auth::id();
         $news->title = $request->news['title'];
@@ -81,5 +87,10 @@ class NewsController extends Controller
             'news.image'       => $request->isMethod('post') ? 'required|image|mimes:jpeg,png,jpg' : 'nullable',
             'news.description' => 'required|min:15',
         ]);
+    }
+
+    public function deleteStorage($news)
+    {
+        unlink(storage_path('app/public/'.$news));
     }
 }
