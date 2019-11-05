@@ -14,10 +14,10 @@ class ImagesTable extends Migration
     public function up()
     {
         Schema::create('images', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('name');
 
-            $table->unsignedBigInteger('gallery_id');
+            $table->unsignedInteger('gallery_id');
             $table->foreign('gallery_id')->references('id')->on('galleries')->onDelete('cascade');
 
             $table->timestamps();

@@ -14,11 +14,11 @@ class CreateInstitutionalsTable extends Migration
     public function up()
     {
         Schema::create('institutionals', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->increments('id');
             $table->string('title');
             $table->longText('about');
 
-            $table->unsignedBigInteger('user_id');
+            $table->unsignedInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });

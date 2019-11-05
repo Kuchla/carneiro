@@ -24,7 +24,7 @@
     @include('site.home.partials._institution')
 @endif
 
-@if(!empty($links))
+@if(!empty($links->first()))
     @include('site.home.partials._links')
 @endif
 

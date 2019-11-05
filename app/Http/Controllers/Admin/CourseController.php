@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Course;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class CourseController extends Controller
 {
@@ -46,7 +47,9 @@ class CourseController extends Controller
 
     public function destroy(Course $course)
     {
+        $this->deleteStorage($course->logo);
         $course->delete();
+
         return redirect(route('admin.courses.index'));
     }
 
@@ -54,11 +57,15 @@ class CourseController extends Controller
     {
         $this->validation($request);
 
+        if(isset($request->course['logo'])){
+            $this->deleteStorage($course->logo);
+        }
+
         $course->user_id = Auth::id();
         $course->name = $request->course['name'];
         $course->description = $request->course['description'];
         $course->course_logo = isset($request->course['logo'])
-            ? $request->course['logo']->store('courses')
+            ? $request->course['logo']->store('logos')
             : null;
         $course->integrated_schedule = isset($request->course['schedule_integrated'])
             ? $request->course['schedule_integrated']->store('schedules')
@@ -85,5 +92,10 @@ class CourseController extends Controller
             'course.schedule_subsequent' => 'nullable',
             'course.description'         => 'required|min:15',
         ]);
+    }
+
+    public function deleteStorage($course)
+    {
+        unlink(storage_path('app/public/'.$course));
     }
 }

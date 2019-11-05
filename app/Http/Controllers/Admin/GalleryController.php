@@ -58,6 +58,8 @@ class GalleryController extends Controller
         $image = Image::where('id', $image)->get();
         $galleryId = Gallery::where('id', $image->first()->gallery_id)->first()->id;
         $countImages = Image::where('gallery_id', $galleryId)->count();
+
+        unlink(storage_path('app/public/'.$image->first()->name));
         $image->first()->delete();
 
         if($countImages == 1){

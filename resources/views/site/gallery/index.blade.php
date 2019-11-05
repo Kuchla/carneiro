@@ -13,7 +13,8 @@
             <div class="col-lg-12">
                 <div class="row gallery-search">
                     <div class="col-md-5 mb-2">
-                        <select id="filter-category" class="form-control" id="exampleFormControlSelect1">
+                        <select id="filter-category" class="form-control" id="select-category">
+                            <option selected disabled>Selecione</option>
                             <option value="0">Todas as categorias</option>
                             @foreach ($categories as $category)
                             <option value="{{ $category }}">{{ translate_category($category) }}</option>
@@ -21,7 +22,8 @@
                         </select>
                     </div>
                     <div class="col-md-5 mb-2">
-                        <select id="filter-album" class="form-control" id="exampleFormControlSelect1">
+                        <select id="filter-album" class="form-control" id="select-albuns">
+                            <option selected disabled>Selecione</option>
                             <option value="0">Todas os álbuns</option>
                             @foreach ($albuns as $album)
                             <option value="{{ $album }}">{{ $album }}</option>
@@ -29,15 +31,15 @@
                         </select>
                     </div>
                     <div class="col-md-2 mb-2">
-                            <button type="button" class="btn btn-primary" id="filter-search">Buscar</button>
+                        <button type="button" class="btn btn-primary" id="filter-search">Buscar</button>
                     </div>
                 </div>
             </div>
         </div>
         <div class="gallery-form">
+            <h5>{{$lastImages?: ''}}</h5>
             @include('site.gallery.partials._items')
         </div>
     </div>
 </section>
-
 @endsection
