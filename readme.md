@@ -28,4 +28,5 @@ APP WEB desenvolvido com Laravel 5.8 para o Colégio Carneiro Martins
     APP_DEBUG=true ou false (mostrar erros) APP_URL=seu dominio
 - Dentro da pasta do projeto rodar "php artisan key:generate".
 - Dentro da pasta do projeto rodar "php artisan storage:link".
+- Dentro da pasta do projeto rodar "php artisan db:seed".
 - Depois disso o projeto está pronto, no servidor fazer o apontamento para a pasta public, dentro da pasta do projeto.
